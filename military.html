@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Spending</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    //load visualization API corechart and material packages
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', {'packages':['line']});
+
+    //set callback function to run when API loads
+        google.charts.setOnLoadCallback(drawMilitaryNomChart);
+        google.charts.setOnLoadCallback(drawMilitaryPercGDPChart)
+        google.charts.setOnLoadCallback(drawMilitaryPersonChart);
+
+        function drawMilitaryNomChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',3,23,34,19,116,62,46,46,5,32,55,28,6,59,45,4,18,58,698],
+            ['2011',4,27,37,21,138,65,48,50,6,34,61,31,6,70,49,5,17,60,711],
+            ['2012',5,26,34,20,157,60,46,47,7,30,60,32,7,81,56,4,18,58,685],
+            ['2013',5,25,33,19,180,62,46,47,8,30,49,34,8,88,67,4,19,57,640],
+            ['2014',5,26,33,18,201,64,46,51,7,28,47,38,9,85,81,4,18,59,610],
+            ['2015',5,24,25,18,214,55,40,51,8,22,42,37,8,66,87,3,16,54,596],
+            ['2016',5,26,24,18,216,57,42,57,7,25,46,37,6,69,64,3,18,48,600],
+            ['2017',5,28,29,21,228,60,45,65,8,27,45,39,6,67,70,4,18,46,606],
+            ['2018',4,27,28,22,250,64,49,67,7,28,47,43,7,61,68,4,19,50,649]
+]);
+
+      var options = {
+        chart: {
+          title: 'Nominal Military Spending',
+          subtitle: 'Billions USD'
+        },
+        vAxis: {format: '$#,### Billion'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            4: { color: '#4b5320' },
+            18: { color: '#4b5320' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Military_Time'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+      function drawMilitaryPercGDPChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+              ['2010',0.0082,0.0203,0.0154,0.0120,0.0190,0.0182,0.0175,0.0275,0.0062,0.0151,0.0096,0.0257,0.0056,0.0385,0.0857,0.0112,0.0232,0.0235,0.0466],
+              ['2011',0.0076,0.0190,0.0141,0.0120,0.0183,0.0173,0.0168,0.0272,0.0065,0.0149,0.0099,0.0258,0.0055,0.0342,0.0723,0.0110,0.0208,0.0227,0.0458],
+              ['2012',0.0084,0.0170,0.0138,0.0112,0.0184,0.0170,0.0173,0.0258,0.0071,0.0144,0.0097,0.0261,0.0058,0.0369,0.0768,0.0113,0.0205,0.0216,0.0423],
+              ['2013',0.0093,0.0158,0.0133,0.0101,0.0188,0.0167,0.0163,0.0255,0.0092,0.0141,0.0095,0.0263,0.0061,0.0385,0.0898,0.0112,0.0196,0.0204,0.0381],
+              ['2014',0.0095,0.0176,0.0133,0.0099,0.0192,0.0164,0.0162,0.0250,0.0078,0.0129,0.0097,0.0266,0.0066,0.0411,0.1068,0.0111,0.0190,0.0193,0.0348],
+              ['2015',0.0092,0.0178,0.0137,0.0116,0.0194,0.0165,0.0163,0.0244,0.0089,0.0121,0.0096,0.0264,0.0066,0.0487,0.1333,0.0110,0.0185,0.0184,0.0327],
+              ['2016',0.0081,0.0218,0.0135,0.0116,0.0194,0.0165,0.0168,0.0247,0.0079,0.0134,0.0094,0.0261,0.0056,0.0540,0.0987,0.0107,0.0207,0.0179,0.0321],
+              ['2017',0.0085,0.0208,0.0143,0.0130,0.0188,0.0165,0.0175,0.0243,0.0081,0.0137,0.0093,0.0256,0.0050,0.0421,0.1022,0.0104,0.0209,0.0174,0.0311],
+              ['2018',0.0080,0.0186,0.0149,0.0126,0.0184,0.0162,0.0178,0.0245,0.0071,0.0133,0.0094,0.0266,0.0054,0.0370,0.0859,0.0099,0.0246,0.0175,0.0316]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Military Spending as a Percentage of GDP',
+        },
+        vAxis: {format: 'percent'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: '#4b5320' },
+            14: { color: '#4b5320' },
+            18: { color: '#4b5320' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Military_Time_Perc'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    function drawMilitaryPersonChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',85,1054,174,568,87,950,566,37,19,542,922,220,119,515,317,153,350,803,11123],
+            ['2011',98,1191,187,623,103,989,600,40,24,574,1023,242,130,607,339,163,333,821,11245],
+            ['2012',109,1153,171,589,117,914,578,37,26,504,1008,250,139,695,395,154,340,784,10750],
+            ['2013',122,1073,164,528,133,946,570,37,33,500,814,269,155,744,467,137,348,749,9975],
+            ['2014',117,1098,161,504,147,959,569,39,27,457,771,295,171,704,562,126,326,766,9439],
+            ['2015',127,1010,120,502,156,831,487,39,30,366,693,288,152,545,605,110,287,686,9153],
+            ['2016',103,1091,118,492,157,858,505,43,28,414,767,290,117,561,441,98,318,603,9149],
+            ['2017',124,1126,141,584,164,904,549,48,31,442,750,309,112,533,487,110,313,573,9171],
+            ['2018',93,1069,133,583,180,952,597,49,28,460,771,340,127,486,468,108,328,607,9758]
+              ]);
+
+      var options = {
+        chart: {
+          title: 'Military Spending Per Person',
+          subtitle: 'USD per Person'
+        },
+        vAxis: {format: '$#,###/Person'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            18: { color: '#4b5320' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Military_Person'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    };
+    </script>
+    <script>
+      //new script tag to load in the new chart
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawMChart);
+      function drawMChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('number', '2018 GDP/Capita');
+            data.addColumn('number', '2018 Military Spending/Capita');
+            data.addRows([
+            ['Argentina',11684,93],
+            ['Australia',57374,1069],
+            ['Brazil',8921,133],
+            ['Canada',46233,583],
+            ['China',9771,180],
+            ['France',58931,952],
+            ['Germany',33493,597],
+            ['India',2010,49],
+            ['Indonesia',3894,28],
+            ['Italy',34483,460],
+            ['Japan',39290,771],
+            ['Korea',31363,340],
+            ['Mexico',9673,127],
+            ['Russia',11473,486],
+            ['Saudi Arabia',23339,468],
+            ['South Africa',6374,108],
+            ['Turkey',9370,328],
+            ['United Kingdom',42944,607],
+            ['United States',62794,9758]
+            ]);
+
+        view = new google.visualization.DataView(data)
+        data.sort([{column: 1, desc: true}]);
+
+        var options = {
+          chart: {
+            title: '2018 G20 GDP per Capita and Military Spending Per Capita',
+          },
+          hAxis: {format: '$#,###/Person'},
+          colors:['#d3d3d3','#4b5320'],
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('Military_Person_GDP'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+    </script>
+</head>
+<body>
+
+  <div class="page-header">
+		<header class="group">
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="logo">
+              <a class="logo--ni" href="https://www.nickharbeck.com/networked-intelligence"><img src="Logo.png" alt="networked-intelligence" width="80px" height = "80px"></a>
+              <a class="logo--nickharbeck" href="https://www.nickharbeck.com">Nick Harbeck</a>
+            </div>
+        </div>
+        <div class="col-sm-6">  
+          <div class="menubar">
+            <ul id="menu" class="flex-container right primary-menu">
+              <li id="menu-item-1" class="menu-item"><a href="home.html">Home</a></li>
+              <li id="menu-item-2" class="menu-item"><a href="education.html">Education</a></li>
+              <li id="menu-item-3" class="menu-item"><a href="healthcare.html">Healthcare</a></li>
+              <li id="menu-item-4" class="selected-menu-item"><a href="military.html">Military</a></li>
+              <li id="menu-item-5" class="menu-item"><a href="reading.html">Futher Reading</a></li>
+            </ul>
+          </div><!--menubar--> 
+        </div>
+        </div>
+      </div>  
+      </header>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>G20 Military Spending</h1>
+    </div> 
+  </div>
+      <div class="container" id='Military_Details'>
+      <div class="row">
+        <div class="col-md-12"><h2>Below is some military spending for each country in the G20 since 2010</h2></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><div id="Military_Time"></div></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><h2>We can also see spending as a percentage of GDP since 2010</h2></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><div id="Military_Time_Perc"></div></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><h3>The United States leads the pack in nominal military spending and spends more on military as a percentage of GDP that most of the G20.</h3> 
+        <br><br>
+        <h4>Let's take a look at how spending stacks up per person since 2010</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><div id="Military_Person"></div></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><h4>The United States spends vast amounts of money. But how does recent military spending per person compare to per capita GDP?</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"><div id="Military_Person_GDP" style="width: 900px; height: 500px"></div>
+      </div>
+      </div>
+  
+  </div>
+    <div class="container">
+      <div id="datasources">
+        <a href="http://data.uis.unesco.org/?queryid=181">Education</a> spending data is from <a href="https://en.unesco.org/">UNESCO</a>, <a href="https://data.oecd.org/healthres/health-spending.htm">Healthcare</a> spending data is from the <a href="http://www.oecd.org/">Organisation for Economic Co-operation and Development (OECD)</a>, and <a href="https://data.worldbank.org/indicator/MS.MIL.XPND.CD?end=2018&start=2010">Military</a> spending data comes from the <a href="https://www.worldbank.org/">World Bank</a> Open Data <a href="https://data.worldbank.org/">Databank</a>. Charts developed using <a href="https://developers.google.com/chart">Google Charts</a>. Images from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a>.
+  </div>
+  </div>
+</body>
+</html>

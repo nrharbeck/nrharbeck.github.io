@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Spending</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    //load visualization API corechart and material packages
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', {'packages':['line']});
+
+    //set callback function to run when API loads
+        google.charts.setOnLoadCallback(drawHealthcareNomChart);
+        google.charts.setOnLoadCallback(drawHealthcarePercGDPChart)
+        google.charts.setOnLoadCallback(drawHealthcarePersonChart);
+
+        function drawHealthcareNomChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',36,79,193,142,471,263,361,180,51,184,406,94,106,172,19,44,61,180,2456],
+            ['2011',44,85,206,145,559,272,366,190,57,184,478,99,109,194,25,48,65,184,2541],
+            ['2012',48,88,219,149,651,283,381,207,61,185,507,104,118,215,30,51,67,189,2644],
+            ['2013',51,95,238,153,734,301,399,241,65,186,549,108,122,202,33,53,72,229,2727],
+            ['2014',46,98,260,158,804,308,416,246,73,187,551,113,121,217,40,57,78,237,2879],
+            ['2015',56,104,262,162,878,311,432,254,72,190,574,127,131,205,39,60,82,241,3049],
+            ['2016',42,110,264,170,949,324,457,277,79,198,573,137,131,205,37,60,90,251,3200],
+            ['2017',43,118,277,176,1032,330,483,294,83,204,587,148,138,219,40,63,96,260,3319],
+            ['2018',42,125,289,184,1112,333,496,312,88,207,603,165,144,222,43,66,101,271,3463]
+]);
+
+      var options = {
+        chart: {
+          title: 'Nominal Healthcare Spending',
+          subtitle: 'Billions USD'
+        },
+        vAxis: {format: '$#,### Billion'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            4: { color: '#800080' },
+            18: { color: '#800080' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Healthcare_Time'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+      function drawHealthcarePercGDPChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',0.09,0.07,0.09,0.09,0.08,0.08,0.14,0.11,0.07,0.09,0.07,0.09,0.10,0.11,0.04,0.12,0.08,0.07,0.16],
+            ['2011',0.08,0.06,0.08,0.08,0.07,0.07,0.13,0.10,0.06,0.08,0.08,0.08,0.09,0.09,0.04,0.12,0.08,0.07,0.16],
+            ['2012',0.09,0.06,0.09,0.08,0.08,0.08,0.14,0.11,0.07,0.09,0.08,0.09,0.10,0.10,0.04,0.13,0.08,0.07,0.16],
+            ['2013',0.09,0.06,0.10,0.08,0.08,0.08,0.14,0.13,0.07,0.09,0.11,0.08,0.10,0.09,0.04,0.15,0.08,0.08,0.16],
+            ['2014',0.09,0.07,0.11,0.09,0.08,0.08,0.15,0.12,0.08,0.09,0.11,0.08,0.09,0.11,0.05,0.16,0.08,0.08,0.16],
+            ['2015',0.09,0.08,0.15,0.10,0.08,0.09,0.18,0.12,0.08,0.10,0.13,0.09,0.11,0.15,0.06,0.19,0.10,0.08,0.17],
+            ['2016',0.07,0.09,0.15,0.11,0.09,0.09,0.18,0.12,0.08,0.11,0.12,0.10,0.12,0.16,0.06,0.20,0.10,0.09,0.17],
+            ['2017',0.07,0.09,0.13,0.11,0.08,0.09,0.19,0.11,0.08,0.10,0.12,0.10,0.12,0.14,0.06,0.18,0.11,0.10,0.17],
+            ['2018',0.08,0.09,0.15,0.11,0.08,0.08,0.18,0.11,0.08,0.10,0.12,0.10,0.12,0.13,0.05,0.18,0.13,0.09,0.17]
+            ]);
+
+      var options = {
+        chart: {
+          title: 'Healthcare Spending as a Percentage of GDP',
+        },
+        vAxis: {format: 'percent'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            18: { color: '#800080' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: '#800080' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: '#800080' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Healthcare_Time_Perc'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    function drawHealthcarePersonChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',891,3595,987,4167,352,4048,4412,146,213,3103,3170,1890,927,1205,703,865,843,2871,7939],
+            ['2011',1068,3809,1045,4227,416,4168,4558,152,234,3098,3741,1977,940,1359,882,922,888,2910,8154],
+            ['2012',1161,3854,1096,4286,482,4306,4734,163,244,3111,3971,2080,1004,1499,1017,972,895,2968,8423],
+            ['2013',1208,4091,1186,4366,541,4557,4948,188,259,3089,4308,2135,1028,1405,1113,996,948,3574,8629],
+            ['2014',1087,4191,1282,4464,590,4642,5142,190,285,3075,4328,2236,1004,1509,1285,1039,1007,3668,9042],
+            ['2015',1299,4381,1279,4551,641,4676,5291,194,278,3129,4517,2488,1075,1425,1244,1075,1040,3703,9505],
+            ['2016',955,4566,1282,4698,688,4844,5550,209,301,3264,4513,2678,1066,1419,1147,1072,1127,3833,9904],
+            ['2017',966,4791,1331,4812,744,4931,5848,219,315,3376,4630,2870,1105,1514,1221,1106,1186,3943,10207],
+            ['2018',949,5005,1378,4974,799,4965,5986,231,329,3428,4766,3192,1138,1539,1278,1137,1227,4070,10586],
+            ]);
+
+      var options = {
+        chart: {
+          title: 'Healthcare Spending Per Person',
+          subtitle: 'USD per Person'
+        },
+        vAxis: {format: '$#,###/Person'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            18: { color: '#800080' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Healthcare_Person'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    };
+    </script>
+    <script>
+      //new script tag to load in the new chart
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawHCChart);
+
+      function drawHCChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('number', '2018 GDP/Capita');
+            data.addColumn('number', '2018 Healthcare Spending/Capita');
+            data.addRows([
+            ['Argentina',11684,949],
+            ['Australia',57374,5005],
+            ['Brazil',8921,1378],
+            ['Canada',46233,4974],
+            ['China',9771,799],
+            ['France',58931,4965],
+            ['Germany',33493,5986],
+            ['India',2010,231],
+            ['Indonesia',3894,329],
+            ['Italy',34483,3428],
+            ['Japan',39290,4766],
+            ['Korea',31363,3192],
+            ['Mexico',9673,1138],
+            ['Russia',11473,1539],
+            ['Saudi Arabia',23339,1278],
+            ['South Africa',6374,1137],
+            ['Turkey',9370,1227],
+            ['United Kingdom',42944,4070],
+            ['United States',62794,10586]
+            ]);
+
+        view = new google.visualization.DataView(data)
+        data.sort([{column: 1, desc: true}]);
+
+        var options = {
+          chart: {
+            title: '2018 G20 GDP per Capita and Healthcare Spending Per Capita',
+          },
+          hAxis: {format: '$#,###/Person'},
+          colors:['#d3d3d3','#800080'],
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('Healthcare_Person_GDP'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+    </script>
+</head>
+<body>
+
+  <div class="page-header">
+		<header class="group">
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="logo">
+              <a class="logo--ni" href="https://www.nickharbeck.com/networked-intelligence"><img src="Logo.png" alt="networked-intelligence" width="80px" height = "80px"></a>
+              <a class="logo--nickharbeck" href="https://www.nickharbeck.com">Nick Harbeck</a>
+            </div>
+        </div>
+        <div class="col-sm-6">  
+          <div class="menubar">
+            <ul id="menu" class="flex-container right primary-menu">
+              <li id="menu-item-1" class="menu-item"><a href="home.html">Home</a></li>
+              <li id="menu-item-2" class="menu-item"><a href="education.html">Education</a></li>
+              <li id="menu-item-3" class="selected-menu-item"><a href="healthcare.html">Healthcare</a></li>
+              <li id="menu-item-4" class="menu-item"><a href="military.html">Military</a></li>
+              <li id="menu-item-5" class="menu-item"><a href="reading.html">Futher Reading</a></li>
+            </ul>
+          </div><!--menubar--> 
+        </div>
+        </div>
+      </div>  
+      </header>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>G20 Healthcare Spending</h1>
+    </div> 
+  </div>
+  <div class="container" id='Healthcare_Details'>
+    <div class="row">
+      <div class="col-md-12"><h2>Below is some healthcare spending for each country in the G20 since 2010</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Healthcare_Time"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h2>We can also see spending as a percentage of GDP since 2010</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Healthcare_Time_Perc"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h3>The United States leads the pack in nominal healthcare spending and spends more on healthcare as a percentage of GDP that most of the G20.</h3> 
+      <br><br>
+      <h4>Let's take a look at how spending stacks up per person since 2010</h4></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Healthcare_Person"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h4>The United States spends vast amounts of money. But how does recent healthcare spending per person compare to per capita GDP?</h4></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Healthcare_Person_GDP" style="width: 900px; height: 500px"></div>
+    </div>
+    </div>
+  
+  </div>
+    <div class="container">
+      <div id="datasources">
+        <a href="http://data.uis.unesco.org/?queryid=181">Education</a> spending data is from <a href="https://en.unesco.org/">UNESCO</a>, <a href="https://data.oecd.org/healthres/health-spending.htm">Healthcare</a> spending data is from the <a href="http://www.oecd.org/">Organisation for Economic Co-operation and Development (OECD)</a>, and <a href="https://data.worldbank.org/indicator/MS.MIL.XPND.CD?end=2018&start=2010">Military</a> spending data comes from the <a href="https://www.worldbank.org/">World Bank</a> Open Data <a href="https://data.worldbank.org/">Databank</a>. Charts developed using <a href="https://developers.google.com/chart">Google Charts</a>. Images from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a>.
+  </div>
+  </div>
+</body>
+</html>

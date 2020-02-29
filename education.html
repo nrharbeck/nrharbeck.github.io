@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Spending</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    //load visualization API corechart and material packages
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', {'packages':['line']});
+
+    //set callback function to run when API loads
+        google.charts.setOnLoadCallback(drawEducationNomChart);
+        google.charts.setOnLoadCallback(drawEducationPercGDPChart)
+        google.charts.setOnLoadCallback(drawEducationPersonChart);
+        google.charts.setOnLoadCallback(drawEducationStudentChart);
+
+        function drawEducationNomChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',21,64,125,87,243,193,130,57,21,93,207,56,41,58,26,21,24,143,586],
+            ['2011',28,71,150,94,302,207,138,69,28,95,224,61,46,78,34,25,25,150,588],
+            ['2012',29,75,144,97,341,192,132,71,31,85,229,62,46,84,37,25,27,152,588],
+            ['2013',30,83,144,98,383,205,139,71,31,89,189,61,49,86,37,22,29,156,594],
+            ['2014',28,76,146,96,418,214,140,76,29,88,174,74,51,83,38,21,30,174,615],
+            ['2015',34,72,112,82,441,184,117,80,31,75,160,72,45,52,33,19,27,164,640],
+            ['2016',31,64,114,81,446,188,119,89,35,72,180,69,42,48,32,18,27,148,643],
+            ['2017',35,71,133,87,486,198,124,104,39,74,177,75,45,59,34,21,26,145,656],
+            ['2018',29,78,124,91,559,213,133,107,41,77,181,78,47,62,39,23,24,155,681]
+]);
+
+      var options = {
+        chart: {
+          title: 'Nominal Education Spending',
+          subtitle: 'Billions USD'
+        },
+        vAxis: {format: '$#,### Billion'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            4: { color: '#cc9933' },
+            18: { color: '#cc9933' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Education_Time'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+      function drawEducationPercGDPChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',0.050,0.056,0.056,0.054,0.040,0.057,0.049,0.034,0.028,0.044,0.036,0.052,0.039,0.038,0.050,0.057,0.031,0.058,0.039],
+            ['2011',0.053,0.051,0.057,0.053,0.040,0.055,0.048,0.038,0.032,0.041,0.036,0.051,0.039,0.038,0.050,0.060,0.030,0.056,0.038],
+            ['2012',0.053,0.049,0.059,0.053,0.040,0.055,0.049,0.039,0.034,0.041,0.037,0.051,0.038,0.038,0.050,0.064,0.031,0.056,0.036],
+            ['2013',0.054,0.052,0.058,0.053,0.040,0.055,0.049,0.038,0.034,0.042,0.037,0.047,0.039,0.038,0.050,0.060,0.031,0.056,0.035],
+            ['2014',0.054,0.052,0.059,0.053,0.040,0.055,0.049,0.037,0.033,0.041,0.036,0.053,0.039,0.040,0.050,0.060,0.032,0.057,0.035],
+            ['2015',0.058,0.053,0.062,0.053,0.040,0.055,0.048,0.038,0.036,0.041,0.036,0.052,0.039,0.038,0.050,0.060,0.031,0.056,0.035],
+            ['2016',0.056,0.053,0.064,0.053,0.040,0.054,0.048,0.039,0.037,0.038,0.036,0.049,0.039,0.037,0.050,0.059,0.031,0.055,0.034],
+            ['2017',0.055,0.053,0.065,0.053,0.040,0.054,0.048,0.039,0.038,0.038,0.036,0.049,0.039,0.037,0.050,0.061,0.031,0.055,0.034],
+            ['2018',0.055,0.054,0.066,0.053,0.041,0.054,0.048,0.039,0.039,0.037,0.036,0.048,0.039,0.037,0.050,0.062,0.031,0.054,0.033]
+            ]);
+
+      var options = {
+        chart: {
+          title: 'Education Spending as a Percentage of GDP',
+        },
+        vAxis: {format: 'percent'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            18: { color: 'darkgrey' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: '#cc9933' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: '#cc9933' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Education_Time_Perc'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    function drawEducationPersonChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',521,2892,638,2548,182,2973,1588,46,88,1567,1620,1140,361,408,963,419,332,2276,1894],
+            ['2011',680,3178,760,2748,225,3162,1714,55,116,1600,1755,1229,397,549,1187,477,342,2374,1886],
+            ['2012',699,3317,724,2796,253,2931,1646,56,126,1432,1795,1243,391,585,1262,478,366,2385,1874],
+            ['2013',711,3570,718,2782,282,3111,1720,56,122,1481,1483,1216,417,601,1242,411,388,2428,1881],
+            ['2014',661,3234,721,2699,306,3228,1733,59,115,1447,1368,1463,423,574,1223,389,382,2686,1932],
+            ['2015',796,3020,550,2307,321,2757,1434,61,119,1234,1259,1419,371,363,1031,342,343,2522,1996],
+            ['2016',713,2639,554,2244,323,2817,1441,67,133,1185,1415,1356,338,333,994,313,336,2254,1989],
+            ['2017',804,2876,641,2391,350,2962,1502,78,148,1218,1398,1449,359,407,1040,376,327,2202,2017],
+            ['2018',647,3103,590,2451,402,3187,1599,79,153,1277,1430,1513,374,426,1167,393,291,2329,2080]
+            ]);
+
+      var options = {
+        chart: {
+          title: 'Education Spending Per Person',
+          subtitle: 'USD per Person'
+        },
+        vAxis: {format: '$#,###/Person'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            18: { color: 'darkgrey' },
+            0: { color: 'lightgrey' },
+            1: { color: '#cc9933' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: '#cc9933' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: 'lightgrey' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Education_Person'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    };
+
+    function drawEducationStudentChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number','Argentina');
+            data.addColumn('number','Australia');
+            data.addColumn('number','Brazil');
+            data.addColumn('number','Canada');
+            data.addColumn('number','China');
+            data.addColumn('number','France');
+            data.addColumn('number','Germany');
+            data.addColumn('number','India');
+            data.addColumn('number','Indonesia');
+            data.addColumn('number','Italy');
+            data.addColumn('number','Japan');
+            data.addColumn('number','Korea');
+            data.addColumn('number','Mexico');
+            data.addColumn('number','Russia');
+            data.addColumn('number','Saudi Arabia');
+            data.addColumn('number','South Africa');
+            data.addColumn('number','Turkey');
+            data.addColumn('number','United Kingdom');
+            data.addColumn('number','United States');
+            data.addRows([
+            ['2010',3021,9281,2750,9970,1137,9441,9832,286,918,9275,10273,9207,2662,3846,6016,2619,2960,9825,11856],
+            ['2011',3938,10198,3278,10753,1404,10042,10612,346,1215,9468,11127,9934,2926,5170,7416,2982,3057,10247,11809],
+            ['2012',4052,10646,3124,10942,1578,9308,10194,349,1316,8474,11381,10044,2882,5508,7884,2986,3267,10298,11735],
+            ['2013',4120,11456,3098,10885,1762,9878,10652,348,1273,8764,9404,9824,3073,5662,7759,2566,3462,10482,11774],
+            ['2014',3832,10379,3108,10563,1912,10251,10732,366,1200,8568,8678,11822,3117,5403,7641,2430,3413,11597,12095],
+            ['2015',4615,9693,2373,9027,2007,8756,8881,382,1248,7304,7983,11466,2733,3416,6442,2134,3059,10890,12498],
+            ['2016',4129,8468,2390,8780,2019,8945,8921,421,1392,7013,8974,10953,2493,3133,6209,1957,3001,9730,12455],
+            ['2017',4657,9230,2763,9357,2188,9405,9299,484,1544,7207,8869,11706,2647,3834,6497,2346,2916,9506,12631],
+            ['2018',3751,9958,2543,9592,2508,10119,9899,492,1602,7559,9069,12226,2760,4013,7289,2453,2599,10054,13026]
+            ]);
+
+      var options = {
+        chart: {
+          title: 'Education Spending Per Student',
+          subtitle: 'USD per Person'
+        },
+        vAxis: {format: '$#,###/Person'},
+        legend: { position: 'none' },
+        series: {
+            13: { color: 'lightgrey' },
+            14: { color: 'lightgrey' },
+            18: { color: '#cc9933' },
+            0: { color: 'lightgrey' },
+            1: { color: 'lightgrey' },
+            2: { color: 'lightgrey' },
+            3: { color: 'lightgrey' },
+            4: { color: 'lightgrey' },
+            5: { color: 'lightgrey' },
+            6: { color: 'lightgrey' },
+            7: { color: 'lightgrey' },
+            8: { color: 'lightgrey' },
+            9: { color: 'lightgrey' },
+            10: { color: 'lightgrey' },
+            11: { color: '#cc9933' },
+            12: { color: 'lightgrey' },
+            15: { color: 'lightgrey' },
+            16: { color: 'lightgrey' },
+            17: { color: 'lightgrey' }
+          },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('Education_Student'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    };
+    </script>
+    <script>
+      //new script tag to load in the new chart
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawEChart);
+
+      function drawEChart() {
+        var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('number', '2018 GDP/Capita');
+            data.addColumn('number', '2018 Education Spending/Student');
+            data.addRows([
+            ['Argentina',11684,3751],
+            ['Australia',57374,9958],
+            ['Brazil',8921,2543],
+            ['Canada',46233,9592],
+            ['China',9771,2508],
+            ['France',58931,10119],
+            ['Germany',33493,9899],
+            ['India',2010,492],
+            ['Indonesia',3894,1602],
+            ['Italy',34483,7559],
+            ['Japan',39290,9069],
+            ['Korea',31363,12226],
+            ['Mexico',9673,2760],
+            ['Russia',11473,4013],
+            ['Saudi Arabia',23339,7289],
+            ['South Africa',6374,2453],
+            ['Turkey',9370,2599],
+            ['United Kingdom',42944,10054],
+            ['United States',62794,13026]
+            ]);
+
+        view = new google.visualization.DataView(data)
+        data.sort([{column: 1, desc: true}]);
+
+        var options = {
+          chart: {
+            title: '2018 G20 GDP per Capita and Education Spending Per Student',
+          },
+          hAxis: {format: '$#,###/Person'},
+          colors:['#d3d3d3','#cc9933'],
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('Education_Student_GDP'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+    </script>
+</head>
+<body>
+
+  <div class="page-header">
+		<header class="group">
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="logo">
+              <a class="logo--ni" href="https://www.nickharbeck.com/networked-intelligence"><img src="Logo.png" alt="networked-intelligence" width="80px" height = "80px"></a>
+              <a class="logo--nickharbeck" href="https://www.nickharbeck.com">Nick Harbeck</a>
+            </div>
+        </div>
+        <div class="col-sm-6">  
+          <div class="menubar">
+            <ul id="menu" class="flex-container right primary-menu">
+              <li id="menu-item-1" class="menu-item"><a href="home.html">Home</a></li>
+              <li id="menu-item-2" class="selected-menu-item"><a href="education.html">Education</a></li>
+              <li id="menu-item-3" class="menu-item"><a href="healthcare.html">Healthcare</a></li>
+              <li id="menu-item-4" class="menu-item"><a href="military.html">Military</a></li>
+              <li id="menu-item-5" class="menu-item"><a href="reading.html">Futher Reading</a></li>
+            </ul>
+          </div><!--menubar--> 
+        </div>
+        </div>
+      </div>  
+      </header>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>G20 Education Spending</h1>
+    </div> 
+  </div>
+  <div class="container" id='Education_Details'>
+    <div class="row">
+      <div class="col-md-12"><h2>Below is some education spending for each country in the G20 since 2010</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Education_Time"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h2>We can also see spending as a percentage of GDP since 2010</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Education_Time_Perc"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h3>The United States leads the pack in nominal education spending but does not spend more on education as a percentage of GDP that most of the G20.</h3> 
+      <br><br>
+      <h4>Let's take a look at how spending stacks up per person since 2010</h4></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Education_Person"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h4>Students are also a good measure of how much education spending is allocated to each person.</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Education_Student"></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><h4>The United States spends vast amounts of money. But how does recent education spending per student compare to per capita GDP?</h4></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div id="Education_Student_GDP" style="width: 900px; height: 500px"></div>
+    </div>
+    </div>
+  
+  </div>
+    <div class="container">
+      <div id="datasources">
+        <a href="http://data.uis.unesco.org/?queryid=181">Education</a> spending data is from <a href="https://en.unesco.org/">UNESCO</a>, <a href="https://data.oecd.org/healthres/health-spending.htm">Healthcare</a> spending data is from the <a href="http://www.oecd.org/">Organisation for Economic Co-operation and Development (OECD)</a>, and <a href="https://data.worldbank.org/indicator/MS.MIL.XPND.CD?end=2018&start=2010">Military</a> spending data comes from the <a href="https://www.worldbank.org/">World Bank</a> Open Data <a href="https://data.worldbank.org/">Databank</a>. Charts developed using <a href="https://developers.google.com/chart">Google Charts</a>. Images from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a>.
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Spending</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    //load visualization API corechart packages
+        google.charts.load('current', {'packages':['corechart']});
+    //set callback function to run when API loads
+        google.charts.setOnLoadCallback(drawEducationChart);
+        google.charts.setOnLoadCallback(drawHealthcareChart);
+        google.charts.setOnLoadCallback(drawMilitaryChart);
+        google.charts.setOnLoadCallback(drawGDPChart);
+
+
+    //Create datatables from cleaned World Bank, OECD, and Government Statistics
+    //Total Education Spending
+    function drawEducationChart() {
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('number', '2010');
+            data.addColumn('number', '2011');
+            data.addColumn('number', '2012');
+            data.addColumn('number', '2013');
+            data.addColumn('number', '2014');
+            data.addColumn('number', '2015');
+            data.addColumn('number', '2016');
+            data.addColumn('number', '2017');
+            data.addColumn('number', '2018');
+            data.addColumn({type: 'string', role: 'tooltip'});
+            data.addRows([
+            ['Argentina',21,28,29,30,28,34,31,35,28,'28 Billion USD'],
+            ['Australia',63,70,75,82,75,71,63,70,77,'77 Billion USD'],
+            ['Brazil',124,150,144,144,146,112,114,133,123,'123 Billion USD'],
+            ['Canada',86,94,97,97,95,82,81,87,90,'90 Billion USD'],
+            ['China',243,302,341,382,417,440,445,485,559,'559 Billion USD'],
+            ['France',193,206,192,205,214,183,188,198,213,'213 Billion USD'],
+            ['Germany',129,137,132,138,140,117,118,124,132,'132 Billion USD'],
+            ['India',56,69,70,71,75,80,89,103,106,'106 Billion USD'],
+            ['Indonesia',21,28,31,30,29,30,34,39,41,'41 Billion USD'],
+            ['Italy',92,94,85,89,87,74,71,73,77,'77 Billion USD'],
+            ['Japan',207,224,229,188,174,160,179,177,180,'180 Billion USD'],
+            ['Korea',56,61,62,61,74,72,69,74,78,'78 Billion USD'],
+            ['Mexico',41,45,45,49,50,45,41,44,47,'47 Billion USD'],
+            ['Russia',58,78,83,86,82,52,48,58,61,'61 Billion USD'],
+            ['Saudi Arabia',26,33,36,37,37,32,32,34,39,'39 Billion USD'],
+            ['South Africa',21,24,25,22,21,18,17,21,22,'22 Billion USD'],
+            ['Turkey',23,25,27,29,29,26,26,26,23,'23 Billion USD'],
+            ['United Kingdom',142,150,151,155,173,164,147,145,154,'154 Billion USD'],
+            ['United States',585,587,588,594,615,640,642,655,680,'680 Billion USD']
+            ]);
+      var view = new google.visualization.DataView(data);
+      //view recent spending and include tooltip text
+      view.setColumns([0,9,10]);
+      var options = {'legend': 'none',
+                    'height': 600,
+                    'width': 767,
+                    'colorAxis': {'colors': '#cc9933'}};
+
+      var chart = new google.visualization.GeoChart(document.getElementById('education_google'));
+      chart.draw(view, options)};
+
+    //Total Healthcare Spending
+    function drawHealthcareChart() {
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('number', '2010');
+            data.addColumn('number', '2011');
+            data.addColumn('number', '2012');
+            data.addColumn('number', '2013');
+            data.addColumn('number', '2014');
+            data.addColumn('number', '2015');
+            data.addColumn('number', '2016');
+            data.addColumn('number', '2017');
+            data.addColumn('number', '2018');
+            data.addColumn({type: 'string', role: 'tooltip'});
+            data.addRows([['Argentina',36,44,48,50,46,56,41,42,42,'42 Billion USD'],
+      ['Australia',79,85,87,94,98,104,110,117,125,'125 Billion USD'],
+      ['Brazil',193,206,218,238,259,261,264,276,288,'288 Billion USD'],
+      ['Canada',141,145,148,153,158,162,169,175,184,'184 Billion USD'],
+      ['China',470,559,650,734,804,878,948,1031,1112,'1112 Billion USD'],
+      ['France',263,272,282,300,307,311,323,329,332,'332 Billion USD'],
+      ['Germany',360,365,380,399,416,432,457,483,496,'496 Billion USD'],
+      ['India',179,189,206,240,245,254,276,293,311,'311 Billion USD'],
+      ['Indonesia',51,57,60,65,72,71,78,83,87,'87 Billion USD'],
+      ['Italy',183,183,185,186,186,190,197,204,207,'207 Billion USD'],
+      ['Japan',405,478,506,549,550,574,573,586,603,'603 Billion USD'],
+      ['Korea',93,98,104,107,113,126,137,147,164,'164 Billion USD'],
+      ['Mexico',105,108,117,122,120,131,131,137,143,'143 Billion USD'],
+      ['Russia',172,194,214,201,217,205,204,218,222,'222 Billion USD'],
+      ['Saudi Arabia', 19,25,30,33,40,39,37,40,43,'43 Billion USD'],
+      ['South Africa',44,47,51,53,56,59,60,63,65,'65 Billion USD'],
+      ['Turkey',60,65,66,71,77,81,89,96,100,'100 Billion USD'],
+      ['United Kingdom',180,184,189,229,237,241,251,260,270,'270 Billion USD'],
+      ['United States',2455,2540,2643,2727,2878,3048,3199,3318,3463,'3463 Billion USD']]);
+      var view = new google.visualization.DataView(data);
+      //view recent spending and include tooltip text
+      view.setColumns([0,9,10]);
+      var options = {'legend': 'none',
+                    'height': 600,
+                    'width': 767,
+                    'colorAxis': {'colors': '#800080'}};
+
+      var chart = new google.visualization.GeoChart(document.getElementById('healthcare_google'));
+      chart.draw(view, options)};
+
+    //Total Military Spending
+    function drawMilitaryChart() {
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('number', '2010');
+            data.addColumn('number', '2011');
+            data.addColumn('number', '2012');
+            data.addColumn('number', '2013');
+            data.addColumn('number', '2014');
+            data.addColumn('number', '2015');
+            data.addColumn('number', '2016');
+            data.addColumn('number', '2017');
+            data.addColumn('number', '2018');
+            data.addColumn({type: 'string', role: 'tooltip'});
+            data.addRows([
+            ['Argentina',3,4,4,5,4,5,4,5,4,'4 Billion USD'],
+            ['Australia',23,26,26,24,25,24,26,27,26,'26 Billion USD'],
+            ['Brazil',34,36,33,32,32,24,24,29,27,'27 Billion USD'],
+            ['Canada',19,21,20,18,17,17,17,21,21,'21 Billion USD'],
+            ['China',115,137,157,179,200,214,216,227,249,'249 Billion USD'],
+            ['France',61,64,60,62,63,55,57,60,63,'63 Billion USD'],
+            ['Germany',46,48,46,45,46,39,41,45,49,'49 Billion USD'],
+            ['India',46,49,47,47,50,51,56,64,66,'66 Billion USD'],
+            ['Indonesia',4,5,6,8,6,7,7,8,7,'7 Billion USD'],
+            ['Italy',32,34,30,30,28,22,25,27,28,'28 Billion USD'],
+            ['Japan',54,60,60,49,46,42,46,45,46,'46 Billion USD'],
+            ['Korea',28,30,31,34,37,36,36,39,43,'43 Billion USD'],
+            ['Mexico',5,6,6,7,8,7,6,5,6,'6 Billion USD'],
+            ['Russia',58,70,81,88,84,66,69,66,61,'61 Billion USD'],
+            ['Saudi Arabia',45,48,56,67,80,87,63,70,67,'67 Billion USD'],
+            ['South Africa',4,4,4,4,3,3,3,3,3,'3 Billion USD'],
+            ['Turkey',17,17,17,18,17,15,17,17,18,'18 Billion USD'],
+            ['United Kingdom',58,60,58,56,59,53,48,46,49,'49 Billion USD'],
+            ['United States',698,711,684,639,609,596,600,605,648,'648 Billion USD']
+            ]);
+      var view = new google.visualization.DataView(data);
+      //view recent spending and include tooltip text
+      view.setColumns([0,9,10]);
+      var options = {'legend': 'none',
+                    'height': 600,
+                    'width': 767,
+                    'colorAxis': {'colors': '#4b5320'}};
+
+      var chart = new google.visualization.GeoChart(document.getElementById('military_google'));
+      chart.draw(view, options)};
+
+      function drawGDPChart() {
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Country');
+            data.addColumn('string', 'Spending Type');
+            data.addColumn('number', '2010');
+            data.addColumn('number', '2011');
+            data.addColumn('number', '2012');
+            data.addColumn('number', '2013');
+            data.addColumn('number', '2014');
+            data.addColumn('number', '2015');
+            data.addColumn('number', '2016');
+            data.addColumn('number', '2017');
+            data.addColumn('number', '2018');
+            data.addColumn({type: 'string', role: 'tooltip'});
+            data.addRows([
+            ['Argentina', 'Education Spending',21,28,29,30,28,34,31,35,28,'28 Billion USD'],
+            ['Australia','Education Spending',63,70,75,82,75,71,63,70,77,'77 Billion USD'],
+            ['Brazil','Education Spending',124,150,144,144,146,112,114,133,123,'123 Billion USD'],
+            ['Canada','Education Spending',86,94,97,97,95,82,81,87,90,'90 Billion USD'],
+            ['China','Education Spending',243,302,341,382,417,440,445,485,559,'559 Billion USD'],
+            ['France','Education Spending',193,206,192,205,214,183,188,198,213,'213 Billion USD'],
+            ['Germany','Education Spending',129,137,132,138,140,117,118,124,132,'132 Billion USD'],
+            ['India','Education Spending',56,69,70,71,75,80,89,103,106,'106 Billion USD'],
+            ['Indonesia','Education Spending',21,28,31,30,29,30,34,39,41,'41 Billion USD'],
+            ['Italy','Education Spending',92,94,85,89,87,74,71,73,77,'77 Billion USD'],
+            ['Japan','Education Spending',207,224,229,188,174,160,179,177,180,'180 Billion USD'],
+            ['Korea','Education Spending',56,61,62,61,74,72,69,74,78,'78 Billion USD'],
+            ['Mexico','Education Spending',41,45,45,49,50,45,41,44,47,'47 Billion USD'],
+            ['Russia','Education Spending',58,78,83,86,82,52,48,58,61,'61 Billion USD'],
+            ['Saudi Arabia','Education Spending',26,33,36,37,37,32,32,34,39,'39 Billion USD'],
+            ['South Africa','Education Spending',21,24,25,22,21,18,17,21,22,'22 Billion USD'],
+            ['Turkey','Education Spending',23,25,27,29,29,26,26,26,23,'23 Billion USD'],
+            ['United Kingdom','Education Spending',142,150,151,155,173,164,147,145,154,'154 Billion USD'],
+            ['United States','Education Spending',585,587,588,594,615,640,642,655,680,'680 Billion USD'],
+            ['Argentina','Healthcare Spending',36,44,48,50,46,56,41,42,42,'42 Billion USD'],
+            ['Australia','Healthcare Spending',79,85,87,94,98,104,110,117,125,'125 Billion USD'],
+            ['Brazil','Healthcare Spending',193,206,218,238,259,261,264,276,288,'288 Billion USD'],
+            ['Canada','Healthcare Spending',141,145,148,153,158,162,169,175,184,'184 Billion USD'],
+            ['China','Healthcare Spending',470,559,650,734,804,878,948,1031,1112,'1112 Billion USD'],
+            ['France','Healthcare Spending',263,272,282,300,307,311,323,329,332,'332 Billion USD'],
+            ['Germany','Healthcare Spending',360,365,380,399,416,432,457,483,496,'496 Billion USD'],
+            ['India','Healthcare Spending',179,189,206,240,245,254,276,293,311,'311 Billion USD'],
+            ['Indonesia','Healthcare Spending',51,57,60,65,72,71,78,83,87,'87 Billion USD'],
+            ['Italy','Healthcare Spending',183,183,185,186,186,190,197,204,207,'207 Billion USD'],
+            ['Japan','Healthcare Spending',405,478,506,549,550,574,573,586,603,'603 Billion USD'],
+            ['Korea','Healthcare Spending',93,98,104,107,113,126,137,147,164,'164 Billion USD'],
+            ['Mexico','Healthcare Spending',105,108,117,122,120,131,131,137,143,'143 Billion USD'],
+            ['Russia','Healthcare Spending',172,194,214,201,217,205,204,218,222,'222 Billion USD'],
+            ['Saudi Arabia','Healthcare Spending', 19,25,30,33,40,39,37,40,43,'43 Billion USD'],
+            ['South Africa','Healthcare Spending',44,47,51,53,56,59,60,63,65,'65 Billion USD'],
+            ['Turkey','Healthcare Spending',60,65,66,71,77,81,89,96,100,'100 Billion USD'],
+            ['United Kingdom','Healthcare Spending',180,184,189,229,237,241,251,260,270,'270 Billion USD'],
+            ['United States','Healthcare Spending',2455,2540,2643,2727,2878,3048,3199,3318,3463,'3463 Billion USD'],
+            ['Argentina','Military Spending',3,4,4,5,4,5,4,5,4,'4 Billion USD'],
+            ['Australia','Military Spending',23,26,26,24,25,24,26,27,26,'26 Billion USD'],
+            ['Brazil','Military Spending',34,36,33,32,32,24,24,29,27,'27 Billion USD'],
+            ['Canada','Military Spending',19,21,20,18,17,17,17,21,21,'21 Billion USD'],
+            ['China','Military Spending',115,137,157,179,200,214,216,227,249,'249 Billion USD'],
+            ['France','Military Spending',61,64,60,62,63,55,57,60,63,'63 Billion USD'],
+            ['Germany','Military Spending',46,48,46,45,46,39,41,45,49,'49 Billion USD'],
+            ['India','Military Spending',46,49,47,47,50,51,56,64,66,'66 Billion USD'],
+            ['Indonesia','Military Spending',4,5,6,8,6,7,7,8,7,'7 Billion USD'],
+            ['Italy','Military Spending', 32,34,30,30,28,22,25,27,28,'28 Billion USD'],
+            ['Japan','Military Spending',54,60,60,49,46,42,46,45,46,'46 Billion USD'],
+            ['Korea','Military Spending',28,30,31,34,37,36,36,39,43,'43 Billion USD'],
+            ['Mexico','Military Spending',5,6,6,7,8,7,6,5,6,'6 Billion USD'],
+            ['Russia','Military Spending',58,70,81,88,84,66,69,66,61,'61 Billion USD'],
+            ['Saudi Arabia','Military Spending',45,48,56,67,80,87,63,70,67,'67 Billion USD'],
+            ['South Africa','Military Spending',4,4,4,4,3,3,3,3,3,'3 Billion USD'],
+            ['Turkey','Military Spending',17,17,17,18,17,15,17,17,18,'18 Billion USD'],
+            ['United Kingdom','Military Spending',58,60,58,56,59,53,48,46,49,'49 Billion USD'],
+            ['United States','Military Spending',698,711,684,639,609,596,600,605,648,'648 Billion USD'],
+            ['Argentina','Other Spending',363,454,464,466,447,499,480,559,445,'445 Billion USD'],
+            ['Australia','Other Spending',980,1214,1357,1374,1267,1151,1008,1114,1205,'1205 Billion USD'],
+            ['Brazil','Other Spending',1857,2223,2068,2057,2017,1404,1394,1615,1429,'1429 Billion USD'],
+            ['Canada','Other Spending',1366,1528,1558,1573,1530,1290,1258,1362,1417,'1417 Billion USD'],
+            ['China','Other Spending',5257,6552,7383,8273,9016,9482,9528,10398,11687,'1167 Billion USD'],
+            ['France','Other Spending',2878,3201,2992,3164,3298,2810,2897,3069,3338,'338 Billion USD'],
+            ['Germany','Other Spending',2106,2310,2124,2227,2249,1849,1854,1933,2099,'2099 Billion USD'],
+            ['India','Other Spending',1393,1514,1503,1497,1667,1718,1868,2190,2234,'2234 Billion USD'],
+            ['Indonesia','Other Spending',678,801,819,808,782,751,811,885,906,'906 Billion USD'],
+            ['Italy','Other Spending',1803,1952,1757,1817,1837,1529,1559,1633,1753,'1753 Billion USD'],
+            ['Japan','Other Spending',5059,5424,5435,4383,4088,3619,4137,4057,4144,'4144 Billion USD'],
+            ['Korea','Other Spending',938,1036,1049,1129,1215,1176,1202,1303,1370,'1370 Billion USD'],
+            ['Mexico','Other Spending',852,956,956,1014,1058,928,836,909,968,'968 Billion USD'],
+            ['Russia','Other Spending',1249,1730,1855,1942,1680,1019,966,1231,1306,'1306 Billion USD'],
+            ['Saudi Arabia','Other Spending',478,608,665,672,675,579,572,610,700,'700 Billion USD'],
+            ['South Africa','Other Spending',292,326,302,273,255,223,201,247,261,'261 Billion USD'],
+            ['Turkey','Other Spending',629,682,721,792,768,697,699,684,596,'596 Billion USD'],
+            ['United Kingdom','Other Spending',1454,1614,1679,1761,2043,1927,1695,1655,1781,'1781 Billion USD'],
+            ['United States','Other Spending',11951,12414,12965,13463,14028,14530,14865,15511,16400,'16400 Billion USD']
+            ]);
+
+            var options = {
+                width: 750,
+                height: 500,
+                title: '2018 Spending (percent of GDP)',
+                pieHole: 0.3,
+                pieSliceText: 'percentage',
+                pieSliceTextStlye: {'fontSize': 8},
+                colors: ['#cc9933', '#800080', '#4b5320', '#d3d3d3']
+              };
+            //make donut charts for each country
+            var argentinaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            argentinaview.setRows(data.getFilteredRows([{column: 0, value: 'Argentina' }]));
+            argentinaview.setColumns([1,10,11]);
+
+            var chart = new google.visualization.PieChart(document.getElementById('argentina_google'));
+            chart.draw(argentinaview, options);
+
+            var australiaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            australiaview.setRows(data.getFilteredRows([{column: 0, value: 'Australia' }]));
+            australiaview.setColumns([1,10,11]);
+
+            var chart2 = new google.visualization.PieChart(document.getElementById('australia_google'));
+            chart2.draw(australiaview, options);
+
+            var brazilview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            brazilview.setRows(data.getFilteredRows([{column: 0, value: 'Brazil' }]));
+            brazilview.setColumns([1,10,11]);
+
+            var chart3 = new google.visualization.PieChart(document.getElementById('brazil_google'));
+            chart3.draw(brazilview, options);
+
+            var canadaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            canadaview.setRows(data.getFilteredRows([{column: 0, value: 'Canada' }]));
+            canadaview.setColumns([1,10,11]);
+
+            var chart4 = new google.visualization.PieChart(document.getElementById('canada_google'));
+            chart4.draw(canadaview, options);
+            
+            var chinaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            chinaview.setRows(data.getFilteredRows([{column: 0, value: 'China' }]));
+            chinaview.setColumns([1,10,11]);
+
+            var chart5 = new google.visualization.PieChart(document.getElementById('china_google'));
+            chart5.draw(chinaview, options);
+
+            var franceview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            franceview.setRows(data.getFilteredRows([{column: 0, value: 'France' }]));
+            franceview.setColumns([1,10,11]);
+
+            var chart6 = new google.visualization.PieChart(document.getElementById('france_google'));
+            chart6.draw(franceview, options);
+
+            var germanyview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            germanyview.setRows(data.getFilteredRows([{column: 0, value: 'Germany' }]));
+            germanyview.setColumns([1,10,11]);
+
+            var chart7 = new google.visualization.PieChart(document.getElementById('germany_google'));
+            chart7.draw(germanyview, options);
+
+            var indiaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            indiaview.setRows(data.getFilteredRows([{column: 0, value: 'India' }]));
+            indiaview.setColumns([1,10,11]);
+
+            var chart8 = new google.visualization.PieChart(document.getElementById('india_google'));
+            chart8.draw(indiaview, options);
+
+            var indonesiaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            indonesiaview.setRows(data.getFilteredRows([{column: 0, value: 'Indonesia' }]));
+            indonesiaview.setColumns([1,10,11]);
+
+            var chart9 = new google.visualization.PieChart(document.getElementById('indonesia_google'));
+            chart9.draw(indonesiaview, options);
+
+            var italyview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            italyview.setRows(data.getFilteredRows([{column: 0, value: 'Italy' }]));
+            italyview.setColumns([1,10,11]);
+
+            var chart10 = new google.visualization.PieChart(document.getElementById('italy_google'));
+            chart10.draw(italyview, options);
+
+            var japanview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            japanview.setRows(data.getFilteredRows([{column: 0, value: 'Japan' }]));
+            japanview.setColumns([1,10,11]);
+
+            var chart11 = new google.visualization.PieChart(document.getElementById('japan_google'));
+            chart11.draw(japanview, options);
+
+            var koreaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            koreaview.setRows(data.getFilteredRows([{column: 0, value: 'Korea' }]));
+            koreaview.setColumns([1,10,11]);
+
+            var chart12 = new google.visualization.PieChart(document.getElementById('korea_google'));
+            chart12.draw(koreaview, options);
+
+            var mexicoview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            mexicoview.setRows(data.getFilteredRows([{column: 0, value: 'Mexico' }]));
+            mexicoview.setColumns([1,10,11]);
+
+            var chart13 = new google.visualization.PieChart(document.getElementById('mexico_google'));
+            chart13.draw(mexicoview, options);
+
+            var russiaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            russiaview.setRows(data.getFilteredRows([{column: 0, value: 'Russia' }]));
+            russiaview.setColumns([1,10,11]);
+
+            var chart14 = new google.visualization.PieChart(document.getElementById('russia_google'));
+            chart14.draw(russiaview, options);
+
+            var saudiarabiaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            saudiarabiaview.setRows(data.getFilteredRows([{column: 0, value: 'Saudi Arabia' }]));
+            saudiarabiaview.setColumns([1,10,11]);
+
+            var chart15 = new google.visualization.PieChart(document.getElementById('saudiarabia_google'));
+            chart15.draw(saudiarabiaview, options);
+
+            var southafricaview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            southafricaview.setRows(data.getFilteredRows([{column: 0, value: 'South Africa' }]));
+            southafricaview.setColumns([1,10,11]);
+
+            var chart16 = new google.visualization.PieChart(document.getElementById('southafrica_google'));
+            chart16.draw(southafricaview, options);
+
+            var turkeyview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            turkeyview.setRows(data.getFilteredRows([{column: 0, value: 'Turkey' }]));
+            turkeyview.setColumns([1,10,11]);
+
+            var chart17 = new google.visualization.PieChart(document.getElementById('turkey_google'));
+            chart17.draw(turkeyview, options);
+
+            var unitedkingdomview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            unitedkingdomview.setRows(data.getFilteredRows([{column: 0, value: 'United Kingdom' }]));
+            unitedkingdomview.setColumns([1,10,11]);
+
+            var chart18 = new google.visualization.PieChart(document.getElementById('unitedkingdom_google'));
+            chart18.draw(unitedkingdomview, options);
+
+            var usview = new google.visualization.DataView(data);
+            //view recent spending and include tooltip text
+            usview.setRows(data.getFilteredRows([{column: 0, value: 'United States'}]));
+            usview.setColumns([1,10,11]);
+
+            var chart18 = new google.visualization.PieChart(document.getElementById('us_google'));
+            chart18.draw(usview, options);}
+            
+
+    </script>
+    <script>
+      //Select the first map of education and argentina details by default on page load  
+    $(document).ready(function() {  
+      $("#education_google").show();
+      $("#healthcare_google").hide();
+      $("#military_google").hide();
+      $("#argentina_google").show();
+      $("#australia_google").hide();
+      $("#brazil_google").hide();
+      $("#canada_google").hide();
+      $("#china_google").hide();
+      $("#france_google").hide();
+      $("#germany_google").hide();
+      $("#india_google").hide();
+      $("#indonesia_google").hide();
+      $("#italy_google").hide();
+      $("#japan_google").hide();
+      $("#korea_google").hide();
+      $("#mexico_google").hide();
+      $("#russia_google").hide();
+      $("#saudiarabia_google").hide();
+      $("#southafrica_google").hide();
+      $("#turkey_google").hide();
+      $("#unitedkingdom_google").hide();
+      $("#us_google").hide();
+      $("#argentina_flag").show();
+      $("#australia_flag").hide();
+      $("#brazil_flag").hide();
+      $("#canada_flag").hide();
+      $("#china_flag").hide();
+      $("#france_flag").hide();
+      $("#germany_flag").hide();
+      $("#india_flag").hide();
+      $("#indonesia_flag").hide();
+      $("#italy_flag").hide();
+      $("#japan_flag").hide();
+      $("#korea_flag").hide();
+      $("#mexico_flag").hide();
+      $("#russia_flag").hide();
+      $("#saudiarabia_flag").hide();
+      $("#southafrica_flag").hide();
+      $("#turkey_flag").hide();
+      $("#unitedkingdom_flag").hide();
+      $("#us_flag").hide();
+      });
+    </script>
+</head>
+<body>
+
+  <div class="page-header">
+		<header class="group">
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="logo">
+              <a class="logo--ni" href="https://www.nickharbeck.com/networked-intelligence"><img src="Logo.png" alt="networked-intelligence" width="80px" height = "80px"></a>
+              <a class="logo--nickharbeck" href="https://www.nickharbeck.com">Nick Harbeck</a>
+            </div>
+        </div>
+        <div class="col-sm-6">  
+          <div class="menubar">
+            <ul id="menu" class="flex-container right primary-menu">
+              <li id="menu-item-1" class="selected-menu-item"><a href="home.html">Home</a></li>
+              <li id="menu-item-2" class="menu-item"><a href="education.html">Education</a></li>
+              <li id="menu-item-3" class="menu-item"><a href="healthcare.html">Healthcare</a></li>
+              <li id="menu-item-4" class="menu-item"><a href="military.html">Military</a></li>
+              <li id="menu-item-5" class="menu-item"><a href="reading.html">Futher Reading</a></li>
+            </ul>
+          </div><!--menubar--> 
+        </div>
+        </div>
+      </div>  
+      </header>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Group of Twenty Spending</h1>
+      <h2>An analysis of education, healthcare, and military spending of the G20</h2>
+    </div> 
+  </div>
+  <div class="container">
+    <h4>The <a href="https://g20.org/en/about/Pages/default.aspx">Group of Twenty (G20)</a> is the forum of the largest countries in the world. Unsurprisingly, these countries spend a lot of money on education, health care, and the military.</h4>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class = "col-md-2">
+      <form>
+        <div class="form-group">
+          <label for="sel1">2018 Spending on:</label>
+          <select class="form-control" id="Dropdown">
+            <option value="education_chart" id="education_chart">Education</option>
+            <option value="healthcare_chart" id="healthcare_chart">Healthcare</option>
+            <option value="military_chart" id="military_chart">Military</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-10">
+      <!--div for google visualization calls-->
+      <div id="map"></div>
+      <div id="healthcare_google"></div>
+      <div id="education_google"></div>
+      <div id="military_google"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <form>
+        <div class="form-group">
+          <label for="sel1">2018 Spending from:</label>
+          <select class="form-control" id="Dropdown2">
+            <option value="argentina_chart" id="argentina_chart">Argentina</option>
+            <option value="australia_chart" id="australia_chart">Australia</option>
+            <option value="brazil_chart" id="brazil_chart">Brazil</option>
+            <option value="canada_chart" id="canada_chart">Canada</option>
+            <option value="china_chart" id="china_chart">China</option>
+            <option value="france_chart" id="france_chart">France</option>
+            <option value="germany_chart" id="germany_chart">Germany</option>
+            <option value="india_chart" id="india_chart">India</option>
+            <option value="indonesia_chart" id="indonesia_chart">Indonesia</option>
+            <option value="italy_chart" id="italy_chart">Italy</option>
+            <option value="japan_chart" id="japan_chart">Japan</option>
+            <option value="korea_chart" id="korea_chart">Korea</option>
+            <option value="mexico_chart" id="mexico_chart">Mexico</option>
+            <option value="russia_chart" id="russia_chart">Russia</option>
+            <option value="saudiarabia_chart" id="saudiarabia_chart">Saudi Arabia</option>
+            <option value="southafrica_chart" id="southafrica_chart">South Africa</option>
+            <option value="turkey_chart" id="turkey_chart">Turkey</option>
+            <option value="unitedkingdom_chart" id="unitedkingdom_chart">United Kingdom</option>
+            <option value="us_chart" id="us_chart">United States</option>
+          </select>
+          <div class="flags">
+          <div id="argentina_flag"><img width="100%" alt="Flag of Argentina" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/512px-Flag_of_Argentina.svg.png"></div>
+          <div id="australia_flag"> <img width="100%" alt="Flag of Australia (converted)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/512px-Flag_of_Australia_%28converted%29.svg.png"></div>
+          <div id="brazil_flag"><img width="100%" alt="Flag of Brazil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/512px-Flag_of_Brazil.svg.png"></div>
+          <div id="canada_flag"><img width="100%" alt="Flag of Canada" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/512px-Flag_of_Canada.svg.png"></div>
+          <div id="china_flag"><img width="100%" alt="Flag of the People's Republic of China" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/512px-Flag_of_the_People%27s_Republic_of_China.svg.png"></div>
+          <div id="france_flag"><img width="100%" alt="Flag of France 1790-1794" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_France_1790-1794.PNG"></div>
+          <div id="germany_flag"><img width="100%" alt="Flag of Germany" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/512px-Flag_of_Germany.svg.png"></div>
+          <div id="india_flag"><img width="100%" alt="Flag of India" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/512px-Flag_of_India.svg.png"></div>
+          <div id="indonesia_flag"><img width="100%" alt="Flag of Indonesia" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/256px-Flag_of_Indonesia.svg.png"></div>
+          <div id="italy_flag"><img width="100%" alt="Flag of Italy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/512px-Flag_of_Italy.svg.png"></div>
+          <div id="japan_flag"><img width="100%" alt="Flag of Japan" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/512px-Flag_of_Japan.svg.png"></div>
+          <div id="korea_flag"><img width="100%" alt="Flag of South Korea" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/512px-Flag_of_South_Korea.svg.png"></div>
+          <div id="mexico_flag"><img width="100%" alt="Flag of Mexico" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/512px-Flag_of_Mexico.svg.png"></div>
+          <div id="russia_flag"><img width="100%" alt="Flag of Russia" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/512px-Flag_of_Russia.svg.png"></div>
+          <div id="saudiarabia_flag"><img width="100%" alt="Flag of Saudi Arabia (1938 to 1973)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flag_of_Saudi_Arabia_%281938_to_1973%29.svg/512px-Flag_of_Saudi_Arabia_%281938_to_1973%29.svg.png"></div>
+          <div id="southafrica_flag"><img width="100%" alt="Flag of South Africa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/512px-Flag_of_South_Africa.svg.png"></div>
+          <div id="turkey_flag"><img width="100%" alt="Flag of Turkey" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/512px-Flag_of_Turkey.svg.png"></div>
+          <div id="unitedkingdom_flag"><img width="100%" alt="Flag of the United Kingdom" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/512px-Flag_of_the_United_Kingdom.svg.png"></div>
+          <div id="us_flag"><img width="100%" alt="Flag of the United States" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/512px-Flag_of_the_United_States.svg.png"></div>
+        </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-10" id="piecharts">
+      <!--div for google visualization calls-->
+      <div id="donut"></div>
+      <div id="argentina_google"></div>
+      <div id="australia_google"></div>
+      <div id="brazil_google"></div>
+      <div id="canada_google"></div>
+      <div id="china_google"></div>
+      <div id="france_google"></div>
+      <div id="germany_google"></div>
+      <div id="india_google"></div>
+      <div id="indonesia_google"></div>
+      <div id="italy_google"></div>
+      <div id="japan_google"></div>
+      <div id="korea_google"></div>
+      <div id="mexico_google"></div>
+      <div id="russia_google"></div>
+      <div id="saudiarabia_google"></div>
+      <div id="southafrica_google"></div>
+      <div id="turkey_google"></div>
+      <div id="unitedkingdom_google"></div>
+      <div id="us_google"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-12">
+        <h2>Click below to explore more data</p>
+    </div>
+  </div>
+  <div class="row" id="pagelogos">
+    <div class="col-md-4">
+      <a href="education.html"><img src="Educationlogo.png" alt="Education"></a>
+      <h4>Education</h4>
+    </div>
+    <div class="col-md-4">
+      <a href="healthcare.html"><img src="Healthcarelogo.png" alt="Healthcare"></a>
+      <h4>Healthcare</h4>
+    </div>
+    <div class="col-md-4">
+      <a href="military.html"><img src="Militarylogo.png" alt="Healthcare"></a>
+      <h4>Military</h4>
+    </div>
+  </div>
+  </div>
+    <div class="container">
+      <div id="datasources">
+        <a href="http://data.uis.unesco.org/?queryid=181">Education</a> spending data is from <a href="https://en.unesco.org/">UNESCO</a>, <a href="https://data.oecd.org/healthres/health-spending.htm">Healthcare</a> spending data is from the <a href="http://www.oecd.org/">Organisation for Economic Co-operation and Development (OECD)</a>, and <a href="https://data.worldbank.org/indicator/MS.MIL.XPND.CD?end=2018&start=2010">Military</a> spending data comes from the <a href="https://www.worldbank.org/">World Bank</a> Open Data <a href="https://data.worldbank.org/">Databank</a>. Charts developed using <a href="https://developers.google.com/chart">Google Charts</a>. Images from <a href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a>.
+  </div>
+  </div>
+</body>
+<footer>
+  <script>
+  //Display the selected map
+    $(document).ready(function(){
+        $('#Dropdown').on('change', function() {
+          if ( this.value == 'education_chart')
+          {
+            $("#education_google").fadeIn(1000);
+          }
+          else
+          {
+            $("#education_google").hide();
+          }
+        });
+    });
+    $(document).ready(function(){
+        $('#Dropdown').on('change', function() {
+          if ( this.value == 'healthcare_chart')
+          {
+            $("#healthcare_google").fadeIn(1000);
+          }
+          else
+          {
+            $("#healthcare_google").hide();
+          }
+        });
+    });
+    $(document).ready(function(){
+        $('#Dropdown').on('change', function() {
+          if ( this.value == 'military_chart')
+          {
+            $("#military_google").fadeIn(1000);
+          }
+          else
+          {
+            $("#military_google").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'argentina_chart')
+          {
+            $("#argentina_google").fadeIn(1000);
+            $("#argentina_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#argentina_google").hide();
+            $("#argentina_flag").hide();
+          }
+        });
+    });
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'australia_chart')
+          {
+            $("#australia_google").fadeIn(1000);
+            $("#australia_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#australia_google").hide();
+            $("#australia_flag").hide();
+          }
+        });
+    });
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'brazil_chart')
+          {
+            $("#brazil_google").fadeIn(1000);
+            $("#brazil_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#brazil_google").hide();
+            $("#brazil_flag").hide();
+          }
+        });
+    });
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'canada_chart')
+          {
+            $("#canada_google").fadeIn(1000);
+            $("#canada_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#canada_google").hide();
+            $("#canada_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'china_chart')
+          {
+            $("#china_google").fadeIn(1000);
+            $("#china_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#china_google").hide();
+            $("#china_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'france_chart')
+          {
+            $("#france_google").fadeIn(1000);
+            $("#france_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#france_google").hide();
+            $("#france_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'germany_chart')
+          {
+            $("#germany_google").fadeIn(1000);
+            $("#germany_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#germany_google").hide();
+            $("#germany_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'india_chart')
+          {
+            $("#india_google").fadeIn(1000);
+            $("#india_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#india_google").hide();
+            $("#india_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'indonesia_chart')
+          {
+            $("#indonesia_google").fadeIn(1000);
+            $("#indonesia_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#indonesia_google").hide();
+            $("#indonesia_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'italy_chart')
+          {
+            $("#italy_google").fadeIn(1000);
+            $("#italy_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#italy_google").hide();
+            $("#italy_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'japan_chart')
+          {
+            $("#japan_google").fadeIn(1000);
+            $("#japan_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#japan_google").hide();
+            $("#japan_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'korea_chart')
+          {
+            $("#korea_google").fadeIn(1000);
+            $("#korea_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#korea_google").hide();
+            $("#korea_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'mexico_chart')
+          {
+            $("#mexico_google").fadeIn(1000);
+            $("#mexico_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#mexico_google").hide();
+            $("#mexico_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'russia_chart')
+          {
+            $("#russia_google").fadeIn(1000);
+            $("#russia_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#russia_google").hide();
+            $("#russia_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'saudiarabia_chart')
+          {
+            $("#saudiarabia_google").fadeIn(1000);
+            $("#saudiarabia_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#saudiarabia_google").hide();
+            $("#saudiarabia_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'southafrica_chart')
+          {
+            $("#southafrica_google").fadeIn(1000);
+            $("#southafrica_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#southafrica_google").hide();
+            $("#southafrica_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'turkey_chart')
+          {
+            $("#turkey_google").fadeIn(1000);
+            $("#turkey_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#turkey_google").hide();
+            $("#turkey_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'unitedkingdom_chart')
+          {
+            $("#unitedkingdom_google").fadeIn(1000);
+            $("#unitedkingdom_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#unitedkingdom_google").hide();
+            $("#unitedkingdom_flag").hide();
+          }
+        });
+    });
+
+    $(document).ready(function(){
+        $('#Dropdown2').on('change', function() {
+          if ( this.value == 'us_chart')
+          {
+            $("#us_google").fadeIn(1000);
+            $("#us_flag").fadeIn(1000);
+          }
+          else
+          {
+            $("#us_google").hide();
+            $("#us_flag").hide();
+          }
+        });
+    });
+    </script>
+</footer>
+</html>

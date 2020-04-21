@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <!--Sankey chart modified from https://observablehq.com/@d3/parallel-sets?collection=@d3/d3-sankey-->
+<h1>Please fill out the following information to generate the workflow chart</h1> 
+
+<form action="/action_page.php">
+    <label for="UE1">User Enhancement --> Dummy Var1 --> Directory</label>
+    <input type="text" id="UE1" name="UE1"><br><br>
+    <label for="UE2">User Enhancement --> Dummy Var2 --> Directory</label>
+    <input type="text" id="UE2" name="UE2"><br><br>
+    <label for="UE3">User Enhancement --> Dummy Var3 --> Directory</label>
+    <input type="text" id="UE3" name="UE3"><br><br>
+    <label for="UE4">User Enhancement --> Dummy Var1 --> ACS</label>
+    <input type="text" id="UE4" name="UE4"><br><br>
+    <label for="UE5">User Enhancement --> Dummy Var2 --> ACS</label>
+    <input type="text" id="UE5" name="UE5"><br><br>
+    <label for="UE6">User Enhancement --> Dummy Var3 --> ACS</label>
+    <input type="text" id="UE6" name="UE6"><br><br>
+    <label for="UE7">User Enhancement --> Dummy Var1 --> iStars</label>
+    <input type="text" id="UE7" name="UE7"><br><br>
+    <label for="UE8">User Enhancement --> Dummy Var2 --> iStars</label>
+    <input type="text" id="UE8" name="UE8"><br><br>
+    <label for="UE9">User Enhancement --> Dummy Var3 --> iStars</label>
+    <input type="text" id="UE9" name="UE9"><br><br>
+
+    <label for="RR1">Regulatory Requirement --> Dummy Var1 --> Directory</label>
+    <input type="text" id="RR1" name="RR1"><br><br>
+    <label for="RR2">Regulatory Requirement --> Dummy Var2 --> Directory</label>
+    <input type="text" id="RR2" name="RR2"><br><br>
+    <label for="RR3">Regulatory Requirement --> Dummy Var3 --> Directory</label>
+    <input type="text" id="RR3" name="RR3"><br><br>
+    <label for="RR4">Regulatory Requirement --> Dummy Var1 --> ACS</label>
+    <input type="text" id="RR4" name="RR4"><br><br>
+    <label for="RR5">Regulatory Requirement --> Dummy Var2 --> ACS</label>
+    <input type="text" id="RR5" name="RR5"><br><br>
+    <label for="RR6">Regulatory Requirement --> Dummy Var3 --> ACS</label>
+    <input type="text" id="RR6" name="RR6"><br><br>
+    <label for="RR7">Regulatory Requirement --> Dummy Var1 --> iStars</label>
+    <input type="text" id="RR7" name="RR7"><br><br>
+    <label for="RR8">Regulatory Requirement --> Dummy Var2 --> iStars</label>
+    <input type="text" id="RR8" name="RR8"><br><br>
+    <label for="RR9">Regulatory Requirement --> Dummy Var3 --> iStars</label>
+    <input type="text" id="RR9" name="RR9"><br><br>
+
+    <label for="S1">Stabilization --> Dummy Var1 --> Directory</label>
+    <input type="text" id="S1" name="S1"><br><br>
+    <label for="S2">Stabilization --> Dummy Var2 --> Directory</label>
+    <input type="text" id="S2" name="S2"><br><br>
+    <label for="S3">Stabilization --> Dummy Var3 --> Directory</label>
+    <input type="text" id="S3" name="S3"><br><br>
+    <label for="S4">Stabilization --> Dummy Var1 --> ACS</label>
+    <input type="text" id="S4" name="S4"><br><br>
+    <label for="S5">Stabilization --> Dummy Var2 --> ACS</label>
+    <input type="text" id="S5" name="S5"><br><br>
+    <label for="S6">Stabilization --> Dummy Var3 --> ACS</label>
+    <input type="text" id="S6" name="S6"><br><br>
+    <label for="S7">Stabilization --> Dummy Var1 --> iStars</label>
+    <input type="text" id="S7" name="S7"><br><br>
+    <label for="S8">Stabilization --> Dummy Var2 --> iStars</label>
+    <input type="text" id="S8" name="S8"><br><br>
+    <label for="S9">Stabilization --> Dummy Var3 --> iStars</label>
+    <input type="text" id="S9" name="S9"><br><br>
+
+    <label for="PE1">Program Enhancement --> Dummy Var1 --> Directory</label>
+    <input type="text" id="PE1" name="PE1"><br><br>
+    <label for="PE2">Program Enhancement --> Dummy Var2 --> Directory</label>
+    <input type="text" id="PE2" name="PE2"><br><br>
+    <label for="PE3">Program Enhancement --> Dummy Var3 --> Directory</label>
+    <input type="text" id="PE3" name="PE3"><br><br>
+    <label for="PE4">Program Enhancement --> Dummy Var1 --> ACS</label>
+    <input type="text" id="PE4" name="PE4"><br><br>
+    <label for="PE5">Program Enhancement --> Dummy Var2 --> ACS</label>
+    <input type="text" id="PE5" name="PE5"><br><br>
+    <label for="PE6">Program Enhancement --> Dummy Var3 --> ACS</label>
+    <input type="text" id="PE6" name="PE6"><br><br>
+    <label for="PE7">Program Enhancement --> Dummy Var1 --> iStars</label>
+    <input type="text" id="PE7" name="PE7"><br><br>
+    <label for="PE8">Program Enhancement --> Dummy Var2 --> iStars</label>
+    <input type="text" id="PE8" name="PE8"><br><br>
+    <label for="PE9">Program Enhancement --> Dummy Var3 --> iStars</label>
+    <input type="text" id="PE9" name="PE9"><br><br>
+
+    <label for="PM1">Product Management --> Dummy Var1 --> Directory</label>
+    <input type="text" id="PM1" name="PM1"><br><br>
+    <label for="PM2">Product Management --> Dummy Var2 --> Directory</label>
+    <input type="text" id="PM2" name="PM2"><br><br>
+    <label for="PM3">Product Management --> Dummy Var3 --> Directory</label>
+    <input type="text" id="PM3" name="PM3"><br><br>
+    <label for="PM4">Product Management --> Dummy Var1 --> ACS</label>
+    <input type="text" id="PM4" name="PM4"><br><br>
+    <label for="PM5">Product Management --> Dummy Var2 --> ACS</label>
+    <input type="text" id="PM5" name="PM5"><br><br>
+    <label for="PM6">Product Management --> Dummy Var3 --> ACS</label>
+    <input type="text" id="PM6" name="PM6"><br><br>
+    <label for="PM7">Product Management --> Dummy Var1 --> iStars</label>
+    <input type="text" id="PM7" name="PM7"><br><br>
+    <label for="PM8">Product Management --> Dummy Var2 --> iStars</label>
+    <input type="text" id="PM8" name="PM8"><br><br>
+    <label for="PM9">Product Management --> Dummy Var3 --> iStars</label>
+    <input type="text" id="PM9" name="PM9"><br><br>
+
+    <label for="TE1">Technical Enhancement --> Dummy Var1 --> Directory</label>
+    <input type="text" id="TE1" name="TE1"><br><br>
+    <label for="TE2">Technical Enhancement --> Dummy Var2 --> Directory</label>
+    <input type="text" id="TE2" name="TE2"><br><br>
+    <label for="TE3">Technical Enhancement --> Dummy Var3 --> Directory</label>
+    <input type="text" id="TE3" name="TE3"><br><br>
+    <label for="TE4">Technical Enhancement --> Dummy Var1 --> ACS</label>
+    <input type="text" id="TE4" name="TE4"><br><br>
+    <label for="TE5">Technical Enhancement --> Dummy Var2 --> ACS</label>
+    <input type="text" id="TE5" name="TE5"><br><br>
+    <label for="TE6">Technical Enhancement --> Dummy Var3 --> ACS</label>
+    <input type="text" id="TE6" name="TE6"><br><br>
+    <label for="TE7">Technical Enhancement --> Dummy Var1 --> iStars</label>
+    <input type="text" id="TE7" name="TE7"><br><br>
+    <label for="TE8">Technical Enhancement --> Dummy Var2 --> iStars</label>
+    <input type="text" id="TE8" name="TE8"><br><br>
+    <label for="TE9">Technical Enhancement --> Dummy Var3 --> iStars</label>
+    <input type="text" id="TE9" name="TE9"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+
+    <script>
+//define input values for data from user entries
+
+
+
+var group = {nodes: [
+    {name: 'User Enhancement'}, //0
+    {name: 'Regulatory Requirement'}, //1
+    {name: 'Stabilization'}, //2
+    {name: 'Program Enhancement'}, //3
+    {name: 'Product Management'}, //4
+    {name: 'Technical Enhancement'}, //5
+    {name: 'Dummyvar1'},//6
+    {name: 'Dummyvar2'},//7
+    {name: 'Dummyvar3'},//8
+    {name: 'Directory'},//9
+    {name: 'ACS'},//10
+    {name: 'iStars'},//11
+    ],
+    links: [
+    {source: 0, target : 6, names: ['User Enhancement', 'Dummyvar1'], value: input1},
+    {source: 0, target : 7, names: ['User Enhancement', 'Dummyvar2'], value: input2},
+    {source: 0, target : 8, names: ['User Enhancement', 'Dummyvar3'], value: input3},
+    {source: 0, target : 9, names: ['User Enhancement', 'Directory'], value: input4},
+    {source: 0, target : 10, names: ['User Enhancement', 'ACS'], value: input5},
+    {source: 0, target : 11, names: ['User Enhancement', 'iStars'], value: input6},
+    {source: 6, target : 9, names: ['User Enhancement', 'Dummyvar1', 'Directory'], value: input7},
+    {source: 6, target : 10, names: ['User Enhancement', 'Dummyvar1', 'ACS'], value: input8},
+    {source: 6, target : 11, names: ['User Enhancement', 'Dummyvar1', 'iStars'], value: input9},
+    {source: 7, target : 9, names: ['User Enhancement', 'Dummyvar2', 'Directory'], value: input55},
+    {source: 7, target : 10, names: ['User Enhancement', 'Dummyvar2', 'ACS'], value: input56},
+    {source: 7, target : 11, names: ['User Enhancement', 'Dummyvar2', 'iStars'], value: input57},
+    {source: 8, target : 9, names: ['User Enhancement', 'Dummyvar3', 'Directory'], value: input58},
+    {source: 8, target : 10, names: ['User Enhancement', 'Dummyvar3', 'ACS'], value: input59},
+    {source: 8, target : 11, names: ['User Enhancement', 'Dummyvar3', 'iStars'], value: input60},
+
+    {source: 1, target : 6, names: ['Regulatory Requirement', 'Dummyvar1'], value: input10},
+    {source: 1, target : 7, names: ['Regulatory Requirement', 'Dummyvar2'], value: input11},
+    {source: 1, target : 8, names: ['Regulatory Requirement', 'Dummyvar3'], value: input12},
+    {source: 1, target : 9, names: ['Regulatory Requirement', 'Directory'], value: input13},
+    {source: 1, target : 10, names: ['Regulatory Requirement', 'ACS'], value: input14},
+    {source: 1, target : 11, names: ['Regulatory Requirement', 'iStars'], value: input15},
+    {source: 6, target : 9, names: ['Regulatory Requirement', 'Dummyvar1', 'Directory'], value: input16},
+    {source: 6, target : 10, names: ['Regulatory Requirement', 'Dummyvar1', 'ACS'], value: input17},
+    {source: 6, target : 11, names: ['Regulatory Requirement', 'Dummyvar1', 'iStars'], value: input18},
+    {source: 7, target : 9, names: ['Regulatory Requirement', 'Dummyvar2', 'Directory'], value: input61},
+    {source: 7, target : 10, names: ['Regulatory Requirement', 'Dummyvar2', 'ACS'], value: input62},
+    {source: 7, target : 11, names: ['Regulatory Requirement', 'Dummyvar2', 'iStars'], value: input63},
+    {source: 8, target : 9, names: ['Regulatory Requirement', 'Dummyvar3', 'Directory'], value: input64},
+    {source: 8, target : 10, names: ['Regulatory Requirement', 'Dummyvar3', 'ACS'], value: input65},
+    {source: 8, target : 11, names: ['Regulatory Requirement', 'Dummyvar3', 'iStars'], value: input66},
+
+    {source: 2, target : 6, names: ['Stabilization', 'Dummyvar1'], value: input19},
+    {source: 2, target : 7, names: ['Stabilization', 'Dummyvar2'], value: input20},
+    {source: 2, target : 8, names: ['Stabilization', 'Dummyvar3'], value: input21},
+    {source: 2, target : 9, names: ['Stabilization', 'Directory'], value: input22},
+    {source: 2, target : 10, names: ['Stabilization', 'ACS'], value: input23},
+    {source: 2, target : 11, names: ['Stabilization', 'iStars'], value: input24},
+    {source: 6, target : 9, names: ['Stabilization', 'Dummyvar1', 'Directory'], value: input25},
+    {source: 6, target : 10, names: ['Stabilization', 'Dummyvar1', 'ACS'], value: input26},
+    {source: 6, target : 11, names: ['Stabilization', 'Dummyvar1', 'iStars'], value: input27},
+    {source: 7, target : 9, names: ['Stabilization', 'Dummyvar2', 'Directory'], value: input67},
+    {source: 7, target : 10, names: ['Stabilization', 'Dummyvar2', 'ACS'], value: input68},
+    {source: 7, target : 11, names: ['Stabilization', 'Dummyvar2', 'iStars'], value: input69},
+    {source: 8, target : 9, names: ['Stabilization', 'Dummyvar3', 'Directory'], value: input70},
+    {source: 8, target : 10, names: ['Stabilization', 'Dummyvar3', 'ACS'], value: input71},
+    {source: 8, target : 11, names: ['Stabilization', 'Dummyvar3', 'iStars'], value: input72},
+
+    {source: 3, target : 6, names: ['Program Enhancement', 'Dummyvar1'], value: input28},
+    {source: 3, target : 7, names: ['Program Enhancement', 'Dummyvar2'], value: input29},
+    {source: 3, target : 8, names: ['Program Enhancement', 'Dummyvar3'], value: input30},
+    {source: 3, target : 9, names: ['Program Enhancement', 'Directory'], value: input31},
+    {source: 3, target : 10, names: ['Program Enhancement', 'ACS'], value: input32},
+    {source: 3, target : 11, names: ['Program Enhancement', 'iStars'], value: input33},
+    {source: 6, target : 9, names: ['Program Enhancement', 'Dummyvar1', 'Directory'], value: input34},
+    {source: 6, target : 10, names: ['Program Enhancement', 'Dummyvar1', 'ACS'], value: input35},
+    {source: 6, target : 11, names: ['Program Enhancement', 'Dummyvar1', 'iStars'], value: input36},
+    {source: 7, target : 9, names: ['Program Enhancement', 'Dummyvar2', 'Directory'], value: input73},
+    {source: 7, target : 10, names: ['Program Enhancement', 'Dummyvar2', 'ACS'], value: input74},
+    {source: 7, target : 11, names: ['Program Enhancement', 'Dummyvar2', 'iStars'], value: input75},
+    {source: 8, target : 9, names: ['Program Enhancement', 'Dummyvar3', 'Directory'], value: input76},
+    {source: 8, target : 10, names: ['Program Enhancement', 'Dummyvar3', 'ACS'], value: input77},
+    {source: 8, target : 11, names: ['Program Enhancement', 'Dummyvar3', 'iStars'], value: input78},
+
+    {source: 4, target : 6, names: ['Product Management', 'Dummyvar1'], value: input37},
+    {source: 4, target : 7, names: ['Product Management', 'Dummyvar2'], value: input38},
+    {source: 4, target : 8, names: ['Product Management', 'Dummyvar3'], value: input39},
+    {source: 4, target : 9, names: ['Product Management', 'Directory'], value: input40},
+    {source: 4, target : 10, names: ['Product Management', 'ACS'], value: input41},
+    {source: 4, target : 11, names: ['Product Management', 'iStars'], value: input42},
+    {source: 6, target : 9, names: ['Product Management', 'Dummyvar1', 'Directory'], value: input43},
+    {source: 6, target : 10, names: ['Product Management', 'Dummyvar1', 'ACS'], value: input44},
+    {source: 6, target : 11, names: ['Product Management', 'Dummyvar1', 'iStars'], value: input45},
+    {source: 7, target : 9, names: ['Product Management', 'Dummyvar2', 'Directory'], value: input79},
+    {source: 7, target : 10, names: ['Product Management', 'Dummyvar2', 'ACS'], value: input80},
+    {source: 7, target : 11, names: ['Product Management', 'Dummyvar2', 'iStars'], value: input81},
+    {source: 8, target : 9, names: ['Product Management', 'Dummyvar3', 'Directory'], value: input82},
+    {source: 8, target : 10, names: ['Product Management', 'Dummyvar3', 'ACS'], value: input83},
+    {source: 8, target : 11, names: ['Product Management', 'Dummyvar3', 'iStars'], value: input84},
+
+    {source: 5, target : 6, names: ['Technical Enhancement', 'Dummyvar1'], value: input46},
+    {source: 5, target : 7, names: ['Technical Enhancement', 'Dummyvar2'], value: input47},
+    {source: 5, target : 8, names: ['Technical Enhancement', 'Dummyvar3'], value: input48},
+    {source: 5, target : 9, names: ['Technical Enhancement', 'Directory'], value: input49},
+    {source: 5, target : 10, names: ['Technical Enhancement', 'ACS'], value: input50},
+    {source: 5, target : 11, names: ['Technical Enhancement', 'iStars'], value: input51},
+    {source: 6, target : 9, names: ['Technical Enhancement', 'Dummyvar1', 'Directory'], value: input52},
+    {source: 6, target : 10, names: ['Technical Enhancement', 'Dummyvar1', 'ACS'], value: input53},
+    {source: 6, target : 11, names: ['Technical Enhancement', 'Dummyvar1', 'iStars'], value: input54},
+    {source: 7, target : 9, names: ['Technical Enhancement', 'Dummyvar2', 'Directory'], value: input85},
+    {source: 7, target : 10, names: ['Technical Enhancement', 'Dummyvar2', 'ACS'], value: input86},
+    {source: 7, target : 11, names: ['Technical Enhancement', 'Dummyvar2', 'iStars'], value: input87},
+    {source: 8, target : 9, names: ['Technical Enhancement', 'Dummyvar3', 'Directory'], value: input88},
+    {source: 8, target : 10, names: ['Technical Enhancement', 'Dummyvar3', 'ACS'], value: input89},
+    {source: 8, target : 11, names: ['Technical Enhancement', 'Dummyvar3', 'iStars'], value: input90},
+    ]
+};
+
+console.log(group)
+    </script>
+</body>
+</html>

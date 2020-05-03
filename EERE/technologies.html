@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Technologies</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+		path:hover {
+		  fill-opacity: .6;
+		}
+	  
+		/* Style for Custom Tooltip */
+		div.tooltip {   
+		  position: absolute;           
+		  text-align: center;           
+		  width: 150px;                  
+		  height: 45px;                 
+		  padding: 2px;             
+		  font: 12px sans-serif;        
+		  background: #e9e9e9;   
+		  border: 0px;      
+		  border-radius: 8px;           
+		  pointer-events: none;         
+		}
+	  
+		.axis text {
+		  font: 10px sans-serif;
+		}
+	  
+		.axis line, .axis path {
+		  fill: none;
+		  stroke: rgb(54, 54, 54);
+		  shape-rendering: crispEdges;
+		}
+		.trendline {
+				stroke-width: 2px;
+				stroke: #69b3a2;
+			  }
+		.annotation_desc {
+		  font: 9px sans-serif;
+		  color: steelblue;
+    }
+    .arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+		</style>
+</head>
+<body>
+  <div class="page-header">
+		<header class="group">
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="logo">
+              <a class="logo--ni" href="https://www.nickharbeck.com/networked-intelligence"><img src="Images/Logo.png" alt="networked-intelligence" width="80px" height = "80px"></a>
+              <a class="logo--nickharbeck" href="https://www.nickharbeck.com">Nick Harbeck</a>
+            </div>
+        </div>
+        <div class="col-sm-6">  
+          <div class="menubar">
+            <ul id="menu" class="flex-container right primary-menu">
+              <li id="menu-item-1" class="menu-item"><a href="EERE.html">Home</a></li>
+              <li id="menu-item-2" class="menu-item"><a href="incentives.html">Incentives</a></li>
+              <li id="menu-item-3" class="selected-menu-item"><a href="technologies.html">Technologies</a></li>
+              <li id="menu-item-4" class="menu-item"><a href="reading.html">Futher Reading</a></li>
+            </ul>
+          </div><!--menubar--> 
+        </div>
+        </div>
+      </div>  
+      </header>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h2>U.S. EERE Technology Targets</h2>
+    </div> 
+  </div>
+  <div class="container">
+    <h4>Technology Targets</h4>
+    <p>A specific way that states can tune EERE policies is by targeting specific technologies. For this project, the technologies have been categorized as:</p>
+    <ul>
+      <li>Appliances - Residential and commercial equipment not used for heating and cooling</li>
+      <li>Buildings - Building-specific requirements, management techniques, and controls</li>
+      <li>Fuels - Energy sources from different fuel types (e.g. biomass, battery technology, gas, etc.)</li>
+      <li>Geothermal - Geothermal direct-use and Geothermal electric technologies</li>
+      <li>HVACR - Residential and commercial heating, ventilation, air-conditioning, refrigeration, and water heating equipment</li>
+      <li>Hydroelectric - Hydroelectric and other water-based technologies</li>
+      <li>Solar - Photovoltaic and other solar technologies</li>
+      <li>Wind - Wind technologies</li>
+      <li>Other</li>
+    </ul>
+    <p>Luckily, the DSIRE dataset contains information about these commonly targeted technologies in the U.S.</p>
+  </div>  
+  <div class="container" style="text-align: center;">
+    <div class="col-md-12">
+        <p style="text-align: left;">Hover over the tiles to see the exact counts. Some technologies are more commonly featured in certain incentive structures compared to others. Additionally, some policies may target multiple technologies (i.e. a building code that requires changes to insulation requirements and installation requirements for an air-conditioner).</p>
+    </div>
+    <br><br>
+  </div>
+
+  <div id="tree_map" style="text-align: center;"></div>
+
+  <div class="container" style="text-align: left;">
+    <div class="col-md-12">
+        <h4>Finally, we can take a look at how different sectors implement these policies.</h4>
+    </div>
+  </div>
+  <div style="text-align: center;">
+  <svg width="900" height="600" id="donut_chart" style="text-align: center;"></svg>
+  </div>
+  <script>
+    //Modified tree map from https://www.d3-graph-gallery.com/graph/treemap_custom.html    
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 10, bottom: 10, left: 10},
+      width = 900 - margin.left - margin.right,
+      height = 900 - margin.top - margin.bottom;
+    //Add Div for Tooltips
+    var div = d3.select("#tree_map")
+          .append("div")   
+          .attr("class", "tooltip")               
+          .style("opacity", 0);
+    // append the svg object to the body of the page
+    var svg = d3.select("#tree_map")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+    
+    // read json data
+    d3.json("Data/technologies.json", function(data) {
+    
+      // Give the data to this cluster layout:
+      var root = d3.hierarchy(data).sum(function(d){ return d.value}) // Here the size of each leave is given in the 'value' field in input data
+    
+      // Then d3.treemap computes the position of each element of the hierarchy
+      d3.treemap()
+      .size([width, height])
+      .paddingTop(28)
+      .paddingRight(7)
+      .paddingInner(3)      // Padding between each rectangle
+      //.paddingOuter(6)
+      //.padding(20)
+      (root)
+    
+      // prepare a color scale
+      var color = d3.scaleOrdinal()
+      .domain(["Financial Incentive", "Regulatory Policy", "Technical Resource"])
+      .range([ "#541e1b", "#40587C", "#737373"])
+    
+      // And a opacity scale
+      var opacity = d3.scaleLinear()
+      .domain([10, 30])
+      .range([.5,1])
+    
+      // use this information to add rectangles:
+      svg
+      .selectAll("rect")
+      .data(root.leaves())
+      .enter()
+      .append("rect")
+      // Modification of custom tooltip code provided by Malcolm Maclean, "D3 Tips and Tricks" 
+        // http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
+        .on("mouseover", function(d) {      
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+            var tooltip_text = d.data.name + "<br>" + "Count: " + d.data.value   
+            div.html(tooltip_text)
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 20) + "px");   
+        })   
+  
+          // fade out tooltip on mouse out               
+          .on("mouseout", function(d) {       
+              div.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+          })
+        .attr('x', function (d) { return d.x0; })
+        .attr('y', function (d) { return d.y0; })
+        .attr('width', function (d) { return d.x1 - d.x0; })
+        .attr('height', function (d) { return d.y1 - d.y0; })
+        .style("stroke", "black")
+        .style("fill", function(d){ return color(d.parent.data.name)} )
+        .style("opacity", function(d){ return opacity(d.data.value)})
+    
+      // and to add the text labels
+      svg
+      .selectAll("text")
+      .data(root.leaves())
+      .enter()
+      .append("text")
+        .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
+        .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
+        .text(function(d){if (d.data.value >100) return d.data.name})
+        .attr("font-size", "11px")
+        .attr("fill", "white")
+    
+      // and to add the text labels
+      svg
+      .selectAll("vals")
+      .data(root.leaves())
+      .enter()
+      .append("text")
+        .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
+        .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
+        .text(function(d){if (d.data.value >9) return d.data.value })
+        .attr("font-size", "10px")
+        .attr("fill", "white")
+    
+      // Add title for the 3 groups
+      svg
+      .selectAll("titles")
+      .data(root.descendants().filter(function(d){return d.depth==1}))
+      .enter()
+      .append("text")
+        .attr("x", function(d){ return d.x0})
+        .attr("y", function(d){ return d.y0+21})
+        .text(function(d){ return d.data.name })
+        .attr("font-size", "19px")
+        .attr("fill",  function(d){ return color(d.data.name)} )
+    
+      // Add title for the 3 groups
+      svg
+      .append("text")
+        .attr("x", 0)
+        .attr("y", 14)    // +20 to adjust position (lower)
+        .text("Policy Incentives, by Technology Group")
+        .attr("font-size", "19px")
+        .attr("fill",  "grey" )
+    
+    })
+  
+  </script>
+<script>
+
+  var svg2 = d3.select("#donut_chart"),
+      width2 = 800,
+      height2 = 500,
+      radius = Math.min(width2, height2) / 2,
+      g2 = svg2.append("g").attr("transform", "translate(" + width2 / 2 + "," + height2 / 2 + ")");
+  
+  var color2 = d3.scaleOrdinal(["#BF6C00", "#C8821D", "#D1993A", "#DBB057", "#E4C774", "#B5B5B5"]);
+  
+  var pie = d3.pie()
+      .sort(null)
+      .value(function(d) { return d.count; });
+  
+  var path2 = d3.arc()
+      .outerRadius(radius - 40)
+      .innerRadius(radius - 120);
+  
+  var label = d3.arc()
+    .outerRadius(radius -10)
+    .innerRadius(radius -10);
+    
+  var label2 = d3.arc()
+      .outerRadius(radius -80)
+      .innerRadius(radius -70);
+  
+  d3.csv("Data/sectorCount.csv", function(d) {
+    d.count = +d.count;
+    return d;
+  }, function(error, data) {
+    if (error) throw error;
+  
+  var arc = g2.selectAll(".arc")
+      .data(pie(data))
+      .enter().append("g")
+        .attr("class", "arc");
+  
+    arc.append("path")
+        .attr("d", path2)
+        .attr("fill", function(d) { return color2(d.data.sector); });
+  
+    arc.append("text")
+        .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+      .attr("dy", "0.35em")
+      .text(function(d) { return d.data.sector; })
+      .style("font-weight", "bold")
+      .style("fill", "#535353");
+      
+    arc.append("text")
+        .attr("transform", function(d) { return "translate(" + label2.centroid(d) + ")"; })
+      .attr("dy", "0.35em")
+      .text(function(d) {if (d.data.count >0) return d.data.count; })
+      .style("font-weight", "bold")
+      .style("fill", "#ffffff");
+
+    arc.append("text")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("dy", "0.35em")
+      .text("The policy count for each sector is listed in the arc")
+      .style("fill", "#78787a");
+  });
+  </script>
+  <div style="text-align: center;">
+  <div class="row" id="pagelogos" style="text-align: center;">
+    <div class="col-md-6" style="text-align: center;">
+      <a href="EERE.html"><img src="Images/Home.png" alt="Home"></a>
+      <h4>Home</h4>
+    </div>
+    <div class="col-md-6" style="text-align: center;">
+      <a href="incentives.html"><img src="Images/Explore Incentives.png" alt="Incentives"></a>
+      <h4>Incentives</h4>
+    </div>
+  </div>
+</div>
+  </div>
+    <div class="container">
+      <div id="datasources">
+        <p>EERE policy data comes from <a href="https://www.dsireusa.org/">DSIRE</a> and <a href="https://www.aceee.org/">ACEEE</a>. More information can be found on each organization's respective website. Feel free to check out my <a href="https://github.com/nrharbeck/DSIRE_API_Calls">GitHub</a> for help with pulling data from the DSIRE API.</p>
+      </div>
+  </div>
+
+
+
+</body>
+<footer>
+</footer>
+</html>

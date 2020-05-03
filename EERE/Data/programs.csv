@@ -1,0 +1,42 @@
+name,value,parent
+Rebate Program,1096,Financial Incentive
+Loan Program,223,Financial Incentive
+Grant Program,84,Financial Incentive
+Property Tax Incentive,82,Financial Incentive
+Net Metering,66,Financial Incentive
+PACE Financing,52,Financial Incentive
+Sales Tax Incentive,51,Financial Incentive
+Public Benefits Fund,32,Financial Incentive
+Performance-Based Incentive,31,Financial Incentive
+Personal Tax Credit,28,Financial Incentive
+Corporate Tax Credit,23,Financial Incentive
+Green Building Incentive,21,Financial Incentive
+Solar Renewable Energy Credit Program,13,Financial Incentive
+Feed-in Tariff,8,Financial Incentive
+Personal Tax Deduction,8,Financial Incentive
+Other Incentive,7,Financial Incentive
+Bond Program,6,Financial Incentive
+Utility Rate Discount,5,Financial Incentive
+Equipment Certification,3,Financial Incentive
+Corporate Tax Exemption,3,Financial Incentive
+Corporate Tax Deduction,3,Financial Incentive
+Leasing Program,2,Financial Incentive
+Value of Solar Tariff,2,Financial Incentive
+Energy Standards for Public Buildings,95,Regulatory Policy
+Building Energy Code,74,Regulatory Policy
+Solar/Wind Access Policy,68,Regulatory Policy
+Solar/Wind Permitting Standards,64,Regulatory Policy
+Interconnection,46,Regulatory Policy
+Renewables Portfolio Standard,43,Regulatory Policy
+Energy Efficiency Resource Standard,30,Regulatory Policy
+Solar/Wind Contractor Licensing,15,Regulatory Policy
+Appliance/Equipment Efficiency Standards,9,Regulatory Policy
+Mandatory Utility Green Power Option,8,Regulatory Policy
+Other Policy,4,Regulatory Policy
+Energy Analysis,801,Technical Resource 
+Training and Information,169,Technical Resource 
+Other,106,Technical Resource 
+Industry Recruitment/Support,29,Technical Resource 
+Green Power Purchasing,25,Technical Resource 
+Generation Disclosure,24,Technical Resource 
+Line Extension Analysis,3,Technical Resource 

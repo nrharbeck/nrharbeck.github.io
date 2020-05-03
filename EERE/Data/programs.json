@@ -1,0 +1,42 @@
+{"children":
+    [{"name":"Financial Incentive","children":[
+    {"name":"Rebate Program","group":"A","value":1096,"colname":"level3"},
+    {"name":"Loan Program","group":"A","value":223,"colname":"level3"},{"name":"Grant Program","group":"A","value":84,"colname":"level3"},{"name":"Property Tax Incentive","group":"A","value":82,"colname":"level3"},
+    {"name":"Net Metering","group":"A","value":66,"colname":"level3"},
+    {"name":"PACE Financing","group":"A","value":52,"colname":"level3"},
+    {"name":"Sales Tax Incentive","group":"A","value":51,"colname":"level3"},
+    {"name":"Public Benefits Fund","group":"A","value":32,"colname":"level3"},
+    {"name":"Performance-Based Initiative","group":"A","value":31,"colname":"level3"},
+    {"name":"Personal Tax Credit","group":"A","value":28,"colname":"level3"},
+    {"name":"Corporate Tax Credit","group":"A","value":23,"colname":"level3"},
+    {"name":"Green Building Initiative","group":"A","value":21,"colname":"level3"},
+    {"name":"Solar Renewable Energy Credit Program","group":"A","value":13,"colname":"level3"},
+    {"name":"Feed-in Tariff","group":"A","value":8,"colname":"level3"},
+    {"name":"Personal Tax Deduction","group":"A","value":8,"colname":"level3"},
+    {"name":"Other Incentive","group":"A","value":7,"colname":"level3"},
+    {"name":"Bond Program","group":"A","value":6,"colname":"level3"},
+    {"name":"Utility Rate Discount","group":"A","value":5,"colname":"level3"},
+    {"name":"Equipment Certification","group":"A","value":3,"colname":"level3"},
+    {"name":"Corporate Tax Exemption","group":"A","value":3,"colname":"level3"},
+    {"name":"Corporate Tax Deduction","group":"A","value":3,"colname":"level3"},
+    {"name":"Leasing Program","group":"A","value":2,"colname":"level3"},
+    {"name":"Value of Solar Tariff","group":"A","value":2,"colname":"level3"}
+    ],"colname":"level2"},
+    {"name":"Regulatory Policy","children":[
+    {"name":"Energy Standards for Public Buildings","group":"A","value":95,"colname":"level3"},
+    {"name":"Building Energy Code","group":"A","value":74,"colname":"level3"},{"name":"Solar/Wind Access Policy","group":"A","value":68,"colname":"level3"},
+    {"name":"Solar/Wind Permitting Standards","group":"A","value":64,"colname":"level3"},
+    {"name":"Interconnection","group":"A","value":46,"colname":"level3"},
+    {"name":"Renewables Porfolio Standard","group":"A","value":43,"colname":"level3"},
+    {"name":"Energy Efficiency Resource Standard","group":"A","value":30,"colname":"level3"},
+    {"name":"Solar/Wind Contracting Licensing","group":"A","value":15,"colname":"level3"},
+    {"name":"Appliance/Equipment Efficiency Standards","group":"A","value":9,"colname":"level3"},
+    {"name":"Mandatory Utility Green Power Option","group":"A","value":8,"colname":"level3"},
+    {"name":"Other Policy","group":"A","value":4,"colname":"level3"}
+    ],"colname":"level2"},
+    {"name":"Technical Resource","children":[
+    {"name":"Energy Analysis","group":"A","value":801,"colname":"level3"},{"name":"Training and Information","group":"A","value":169,"colname":"level3"},{"name":"Other","group":"A","value":106,"colname":"level3"},
+    {"name":"Industry Recruitment/Support","group":"A","value":29,"colname":"level3"},
+    {"name":"Green Power Purchasing","group":"A","value":25,"colname":"level3"},{"name":"Generation Disclosure","group":"A","value":24,"colname":"level3"},
+    {"name":"Line Extension Analysis","group":"A","value":3,"colname":"level3"}
+    ],"colname":"level2"}],"name":"Incentive Programs"}

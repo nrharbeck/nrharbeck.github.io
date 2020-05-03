@@ -1,0 +1,34 @@
+{"children":
+    [{"name":"Financial Incentive","children":[
+    {"name":"HVACR","group":"A","value":1263,"colname":"level3"},
+    {"name":"Appliances","group":"A","value":826,"colname":"level3"},
+    {"name":"Buildings","group":"A","value":1041,"colname":"level3"},
+    {"name":"Fuels","group":"A","value":312,"colname":"level3"},
+    {"name":"Geothermal","group":"A","value":142,"colname":"level3"},
+    {"name":"Hydroelectric","group":"A","value":171,"colname":"level3"},
+    {"name":"Other","group":"A","value":870,"colname":"level3"},
+    {"name":"Solar","group":"A","value":563,"colname":"level3"},
+    {"name":"Wind","group":"A","value":610,"colname":"level3"}
+    ],"colname":"level2"},
+    {"name":"Regulatory Policy","children":[
+    {"name":"HVACR","group":"A","value":152,"colname":"level3"},
+    {"name":"Appliances","group":"A","value":24,"colname":"level3"},
+    {"name":"Buildings","group":"A","value":239,"colname":"level3"},
+    {"name":"Fuels","group":"A","value":257,"colname":"level3"},
+    {"name":"Geothermal","group":"A","value":132,"colname":"level3"},
+    {"name":"Hydroelectric","group":"A","value":225,"colname":"level3"},
+    {"name":"Other","group":"A","value":119,"colname":"level3"},
+    {"name":"Solar","group":"A","value":401,"colname":"level3"},
+    {"name":"Wind","group":"A","value":317,"colname":"level3"}
+    ],"colname":"level2"},
+    {"name":"Technical Resource","children":[
+    {"name":"HVACR","group":"A","value":292,"colname":"level3"},
+    {"name":"Appliances","group":"A","value":268,"colname":"level3"},
+    {"name":"Buildings","group":"A","value":1025,"colname":"level3"},
+    {"name":"Fuels","group":"A","value":120,"colname":"level3"},
+    {"name":"Geothermal","group":"A","value":1,"colname":"level3"},
+    {"name":"Hydroelectric","group":"A","value":5,"colname":"level3"},
+    {"name":"Other","group":"A","value":73,"colname":"level3"},
+    {"name":"Solar","group":"A","value":29,"colname":"level3"},
+    {"name":"Wind","group":"A","value":25,"colname":"level3"}
+    ],"colname":"level2"}],"name":"Incentive Programs"}

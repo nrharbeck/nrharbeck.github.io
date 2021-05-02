@@ -455,7 +455,7 @@ d3.csv("Data/stateCount2020.csv", function(data) {
 <script>
 async function PredictEnergyConsumption() {
   //These are the most recent observations of energy generation in each state. Loading guide from https://stackoverflow.com/questions/53532433/how-to-train-a-tensorflow-js-model-using-a-csv-file/53730094 
-d3.csv("/Data/modelinput.csv", function(data) { 
+d3.csv("/EnergyPrediction/Data/modelinput.csv", function(data) { 
   var state_input = document.getElementById('state_selector').value
   var energy_input = document.getElementById('energy_selector').value
   var csvDataset = data.filter(function(d) { return d[state_input] == 1 && d[energy_input] == 1 });

@@ -1,0 +1,61 @@
+,state_id,counts,link,renewable,ghg
+0,Alabama,0,,,
+1,Alaska,0,,,
+2,American Samoa,0,,,
+3,Arizona,0,,,
+4,Arkansas,0,,,
+5,California,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e519c6c61f24cdf5319ca/1569608094151/USCA_2019+State+Factsheet-CA_20190924.pdf,100% Renewable by 2045,"40% GHG reduction by 2030, carbon neutral by 2045"
+6,Colorado,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e51cbee8f446c5857a542/1569608140582/USCA_2019+State+Factsheet-CO_20190924.pdf,30% Renewable by 2020,"26% GHG reduction by 2025, 50% by 2030, 90% by 2050"
+7,Connecticut,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e51f1ee8f446c5857a95e/1569608178247/USCA_2019+State+Factsheet-CT_20190924.pdf,40% Renewable by 2030,"10% GHG reduction by 2020, 45% by 2030, 80% by 2050"
+8,Delaware,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e520fa5dc16598a441415/1569608208869/USCA_2019+State+Factsheet-DE_20190924.pdf,25% Renewable by 2025,26-28% GHG reduction by 2025
+9,District of Columbia,0,,,
+10,Federal,0,,,
+11,Federated States of Micronesia,0,,,
+12,Florida,0,,,
+13,Georgia,0,,,
+14,Guam,0,,,
+15,Hawaii,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e521f19949b6cda95f439/1569608224696/USCA_2019+State+Factsheet-HI_20190924.pdf,100% Renewable by 2045,Carbon neutral by 2045
+16,Idaho,0,,,
+17,Illinois,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52300ba3362bcd5df005/1569608241528/USCA_2019+State+Factsheet-IL_20190924.pdf,25% Renewable by 2025,26-28% GHG reduction by 2025
+18,Indiana,0,,,
+19,Iowa,0,,,
+20,Kansas,1,,,
+21,Kentucky,0,,,
+22,Louisiana,1,,,
+23,Maine,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e524b19949b6cda95f9f0/1569608268572/USCA_2019+State+Factsheet-ME_20190924.pdf,"80% Renewable by 2030, 100% by 2050","45% GHG reduction by 2030, 80% by 2050"
+24,Marshall Islands,0,,,
+25,Maryland,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e525a840f167ffa7c0446/1569608284086/USCA_2019+State+Factsheet-MD_20190924.pdf,50% Renewable by 2030,"40% GHG reduction by 2030, 80-95% by 2050"
+26,Massachusetts,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e5277a5dc16598a44224a/1569608314101/USCA_2019+State+Factsheet-MA_20190924.pdf,35% Renewable by 2030 and 1% annual increase,"25% GHG reduction by 2020, 80% by 2050"
+27,Michigan,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e5288d2a8a307e38f7085/1569608331296/USCA_2019+State+Factsheet-MI_20190924.pdf,"15% Renewable by 2021, 35% by 2025","20% GHG reduction by 2020, 80% by 2050"
+28,Minnesota,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52a0a5dc16598a4426ef/1569608356224/USCA_2019+State+Factsheet-MN_20190924.pdf,25% Renewable by 2025,"30% GHG reduction by 2025, 80% by 2050"
+29,Mississippi,0,,,
+30,Missouri,0,,,
+31,Montana,0,,,
+32,N. Mariana Islands,0,,,
+33,Nebraska,0,,,
+34,Nevada,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52bd98ac8952cb360222/1569608382779/USCA_2019+State+Factsheet-NV_20190924.pdf,"50% Renewable by 2030, 100% by 2050","28% GHG reduction by 2025, 45% by 2030, net-zero by 2050"
+35,New Hampshire,0,,,
+36,New Jersey,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52d0ee8f446c5857c566/1569608402052/USCA_2019+State+Factsheet-NJ_20190924.pdf,"50% Renewable by 2030, 100% by 2050",80% GHG reduction by 2050
+37,New Mexico,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52dfd2a8a307e38f7b7e/1569608416607/USCA_2019+State+Factsheet-NM_20190924.pdf,"40% Renewable by 2045, 50% by 2030, 80% by 2040/2050",45% GHG reduction by 2030
+38,New York,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52eed2a8a307e38f7cf7/1569608431916/USCA_2019+State+Factsheet-NY_20190924.pdf,"70% Renewable by 2030, zero-carbon by 2040",net-zero GHG by 2050
+39,North Carolina,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e52fd0ba3362bcd5e0935/1569608446722/USCA_2019+State+Factsheet-NC_20190924.pdf,12.5% Renewable by 2021,40% GHG reduction by 2025
+40,North Dakota,0,,,
+41,Ohio,0,,,
+42,Oklahoma,0,,,
+43,Oregon,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e5310f71d811b994a6ec9/1569608465473/USCA_2019+State+Factsheet-OR_20190925.pdf,50% Renewable by 2040,"10% GHG reduction by 2020, 75% by 2050"
+44,Palau,0,,,
+45,Pennsylvania,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e5329dd91b92761bebfe4/1569608491455/USCA_2019+State+Factsheet-PA_20190924.pdf,8-10% Renewable by 2021,"26-28% GHG reduction by 2025, 80% by 2050"
+46,Puerto Rico,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e533c9ef9643a4472975f/1569608509328/USCA_2019+State+Factsheet-PR_20190924.pdf,"40% Renewable by 2025, 60% by 2040, 100% by 2050",50% GHG reduction by 2025
+47,Rhode Island,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e534d19949b6cda9617b7/1569608526978/USCA_2019+State+Factsheet-RI_20190924.pdf,38.5% Renewable by 2035,"10% GHG reduction by 2020, 45% by 2030, 80% by 2050"
+48,South Carolina,0,,,
+49,South Dakota,0,,,
+50,Tennessee,0,,,
+51,Texas,0,,,
+52,Utah,0,,,
+53,Vermont,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e535ad2a8a307e38f884e/1569608541889/USCA_2019+State+Factsheet-VT_20190924.pdf,"55% Renewable by 2017, 75% by 2032","40% GHG reduction by 2030, 80-95% by 2050"
+54,Virgin Islands,0,,,
+55,Virginia,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5db711a276c6430f002435a0/1572278691224/USCA_2019+State+Factsheet-VA_201901011.pdf,"30% Renewable by 2030, 100% by 2050",
+56,Washington,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e536d0ba3362bcd5e162c/1569608557545/USCA_2019+State+Factsheet-WA_20190924.pdf,Carbon neutral by 2030,"1990 GHG levels by 2020, 25% below by 2035, 50% below by 2050"
+57,West Virginia,0,,,
+58,Wisconsin,1,https://static1.squarespace.com/static/5a4cfbfe18b27d4da21c9361/t/5d8e537b0ba3362bcd5e171e/1569608572386/USCA_2019+State+Factsheet-WI_20190924.pdf,"10% Renewable by 2015, 100% by 2050",
+59,Wyoming,0,,,

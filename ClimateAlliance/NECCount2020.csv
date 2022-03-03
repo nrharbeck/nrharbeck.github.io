@@ -1,59 +1,59 @@
-state_id,counts,link,renewable,ghg,code
-Alabama,1,,Delay Section 210.8(F),,AL
-Alaska,0,,,,AK
-American Samoa,0,,,,AS
-Arizona,0,,,,AZ
-Arkansas,0,,,,AR
-California,0,,,,CA
-Colorado,1,https://content.govdelivery.com/accounts/CODORA/bulletins/2e613c2,Delay Section 210.8(F),,CO
-Connecticut,0,,,,CT
-Delaware,1,,Adopted 2020 NEC,,DE
-District of Columbia,0,,,,DC
-Florida,0,,,,FL
-Georgia,1,https://www.dca.ga.gov/sites/default/files/2021_nec_amendments.pdf,Deleted Section 210.8(F),,GA
-Guam,0,,,,
-Hawaii,1,,SOMETHING GOES HERE?,,HI
-Idaho,0,,,,ID
-Illinois,0,,,,IL
-Indiana,0,,,,IN
-Iowa,1,https://dps.iowa.gov/divisions/electrical-examining-board/electrical-code-updates,Deleted Section 210.8(F),,IA
-Kansas,0,,,,KS
-Kentucky,0,,,,KY
-Louisiana,0,,,,LA
-Maine,1,https://up.codes/viewer/maine/nfpa-70-2020/chapter/2/wiring-and-protection#2,Modified Section 210.8(F),,ME
-Marshall Islands,0,,,,
-Maryland,0,,,,MD
-Massachusetts,1,https://www.mass.gov/doc/527-cmr-12-massachusetts-electrical-code-amendments/download ,Deleted Section 210.8(F),,MA
-Michigan,0,,,,MI
-Minnesota,1,https://www.dli.mn.gov/sites/default/files/pdf/review60fall21.pdf,Delay Section 210.8(F),,MN
-Mississippi,0,,,,MS
-Missouri,0,,,,MO
-Montana,0,,,,MT
-N. Mariana Islands,0,,,,
-Nebraska,0,,,,NE
-Nevada,0,,,,NV
-New Hampshire,0,,,,NH
-New Jersey,1,https://www.nj.gov/dca/divisions/codes/advisory/pdf_ucc/CAB_minutes_08_13_2021.pdf,Delay Section 210.8(F),,NJ
-New Mexico,0,,,,NM
-New York,0,,,,NY
-North Carolina,1,https://www.ncosfm.gov/media/2068/open,Deleted Section 210.8(F),,NC
-North Dakota,1,https://www.ndseb.com/,Modified Section 210.8(F),,ND
-Ohio,1,,Modified Section 210.8(F),,OH
-Oklahoma,1,https://www.ok.gov/oubcc/documents/2021%2010%2019%20Meeting%20Minutes.pdf,Deleted Section 210.8(F),,OK
-Oregon,1,https://www.oregon.gov/bcd/codes-stand/Documents/21oesc-table1-E-2021April.pdf,Modified Section 210.8(F),,OR
-Palau,0,,,,
-Pennsylvania,0,,,,PA
-Puerto Rico,0,,,,
-Rhode Island,1,https://rules.sos.ri.gov/Regulations/part/510-00-00-5?reg_id=11323&utm_source=Campaign%3a+Code+Alerts&utm_medium=newsletter&utm_campaign=11+January+2022,Adopted 2020 NEC,,RI
-South Carolina,1,,Deleted Section 210.8(F),,SC
-South Dakota,1,https://dlr.sd.gov/electrical/documents/adopted_code_2020.pdf,Deleted Section 210.8(F),,SD
-Tennessee,0,,,,TN
-Texas,1,https://www.sos.state.tx.us/texreg/archive/November122021/Adopted%20Rules/16.ECONOMIC%20REGULATION.html#70,Delay Section 210.8(F),,TX
-Utah,1,https://legiscan.com/UT/text/SB0033/id/2335968/Utah-2021-SB0033-Enrolled.pdf,Deleted Section 210.8(F),,UT
-Vermont,0,,,,VT
-Virgin Islands,0,,,,
-Virginia,0,,,,VA
-Washington,1,https://lni.wa.gov/licensing-permits/_docs/Elc2011.pdf ,Delay Section 210.8(F),,WA
-West Virginia,0,,,,WV
-Wisconsin,0,,,,WI
-Wyoming,1,,Adopted 2020 NEC,,WY
+,state_id,counts,link,status,more,code
+0,Alabama,3,,Delay Section 210.8(F),,AL
+1,Alaska,0,,,,AK
+2,American Samoa,0,,,,AS
+3,Arizona,0,,,,AZ
+4,Arkansas,0,,,,AR
+5,California,0,,,,CA
+6,Colorado,3,https://content.govdelivery.com/accounts/CODORA/bulletins/2e613c2,Delay Section 210.8(F),Click for more info,CO
+7,Connecticut,0,,,,CT
+8,Delaware,4,,Adopted 2020 NEC,,DE
+9,District of Columbia,0,,,,DC
+10,Florida,0,,,,FL
+11,Georgia,1,https://www.dca.ga.gov/sites/default/files/2021_nec_amendments.pdf,Deleted Section 210.8(F),Click for more info,GA
+12,Guam,0,,,,
+13,Hawaii,1,,SOMETHING GOES HERE?,,HI
+14,Idaho,0,,,,ID
+15,Illinois,0,,,,IL
+16,Indiana,0,,,,IN
+17,Iowa,1,https://dps.iowa.gov/divisions/electrical-examining-board/electrical-code-updates,Deleted Section 210.8(F),Click for more info,IA
+18,Kansas,0,,,,KS
+19,Kentucky,0,,,,KY
+20,Louisiana,0,,,,LA
+21,Maine,2,https://up.codes/viewer/maine/nfpa-70-2020/chapter/2/wiring-and-protection#2,Modified Section 210.8(F),Click for more info,ME
+22,Marshall Islands,0,,,,
+23,Maryland,0,,,,MD
+24,Massachusetts,1,https://www.mass.gov/doc/527-cmr-12-massachusetts-electrical-code-amendments/download ,Deleted Section 210.8(F),Click for more info,MA
+25,Michigan,0,,,,MI
+26,Minnesota,3,https://www.dli.mn.gov/sites/default/files/pdf/review60fall21.pdf,Delay Section 210.8(F),Click for more info,MN
+27,Mississippi,0,,,,MS
+28,Missouri,0,,,,MO
+29,Montana,0,,,,MT
+30,N. Mariana Islands,0,,,,
+31,Nebraska,0,,,,NE
+32,Nevada,0,,,,NV
+33,New Hampshire,0,,,,NH
+34,New Jersey,3,https://www.nj.gov/dca/divisions/codes/advisory/pdf_ucc/CAB_minutes_08_13_2021.pdf,Delay Section 210.8(F),Click for more info,NJ
+35,New Mexico,0,,,,NM
+36,New York,0,,,,NY
+37,North Carolina,1,https://www.ncosfm.gov/media/2068/open,Deleted Section 210.8(F),Click for more info,NC
+38,North Dakota,2,https://www.ndseb.com/,Modified Section 210.8(F),Click for more info,ND
+39,Ohio,2,,Modified Section 210.8(F),,OH
+40,Oklahoma,1,https://www.ok.gov/oubcc/documents/2021%2010%2019%20Meeting%20Minutes.pdf,Deleted Section 210.8(F),Click for more info,OK
+41,Oregon,2,https://www.oregon.gov/bcd/codes-stand/Documents/21oesc-table1-E-2021April.pdf,Modified Section 210.8(F),Click for more info,OR
+42,Palau,0,,,,
+43,Pennsylvania,0,,,,PA
+44,Puerto Rico,0,,,,
+45,Rhode Island,4,https://rules.sos.ri.gov/Regulations/part/510-00-00-5?reg_id=11323&utm_source=Campaign%3a+Code+Alerts&utm_medium=newsletter&utm_campaign=11+January+2022,Adopted 2020 NEC,Click for more info,RI
+46,South Carolina,1,,Deleted Section 210.8(F),,SC
+47,South Dakota,1,https://dlr.sd.gov/electrical/documents/adopted_code_2020.pdf,Deleted Section 210.8(F),Click for more info,SD
+48,Tennessee,0,,,,TN
+49,Texas,3,https://www.sos.state.tx.us/texreg/archive/November122021/Adopted%20Rules/16.ECONOMIC%20REGULATION.html#70,Delay Section 210.8(F),Click for more info,TX
+50,Utah,1,https://legiscan.com/UT/text/SB0033/id/2335968/Utah-2021-SB0033-Enrolled.pdf,Deleted Section 210.8(F),Click for more info,UT
+51,Vermont,0,,,,VT
+52,Virgin Islands,0,,,,
+53,Virginia,0,,,,VA
+54,Washington,3,https://lni.wa.gov/licensing-permits/_docs/Elc2011.pdf ,Delay Section 210.8(F),Click for more info,WA
+55,West Virginia,0,,,,WV
+56,Wisconsin,0,,,,WI
+57,Wyoming,4,,Adopted 2020 NEC,,WY

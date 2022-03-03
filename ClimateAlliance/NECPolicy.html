@@ -24,7 +24,7 @@
     position: absolute;           
     text-align: center;           
     width: 200px;                  
-    height: 80px;                 
+    height: 60px;                 
     padding: 2px;             
     font: 12px sans-serif;        
     background: #e9e9e9;   
@@ -32,8 +32,30 @@
     border-radius: 8px;           
     pointer-events: none;         
   }
-          
 
+.box {
+  float: left;
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+  clear: both;
+}
+
+.red {
+  background-color: #C70039;
+}
+
+.green {
+  background-color: #228B22;
+}
+
+.teal {
+  background-color: #008080;
+}
+
+.yellow {
+  background-color: #FFBF00;
+}
   .axis text {
     font: 10px sans-serif;
   }
@@ -54,7 +76,7 @@
   </style>
 </head>
 <body>
-<p>States highlighted in blue have taken action on GFCI NEC requirement. Hover over a state for a summary of its actions, or click to be redicrected to the state's official actions.</p>
+<h2>States highlighted in color have taken action on GFCI NEC requirement. Hover over a state for a summary of its actions, or click to be redicrected to the state's official actions.</h2>
 
     <div id="map" style="text-align: center;"></div>
 
@@ -65,8 +87,11 @@
 var width = 900;
 var height = 600;
 
-var lowColor = '#ADADAD'
-var highColor = '#1E3F66'
+var noColor = '#ADADAD'
+var deleteColor = '#228B22'
+var modifyColor = '#008080'
+var delayColor = '#FFBF00'
+var adoptColor = '#C70039'
 
 // D3 Projection
 var projection = d3.geoAlbersUsa()
@@ -95,11 +120,11 @@ var div = d3.select("#map")
 d3.csv("NECCount2020.csv", function(data) {
 	var dataArray = [];
 	for (var d = 0; d < data.length; d++) {
-		dataArray.push(parseFloat(data[d].Reduction2025))
+		dataArray.push(parseFloat(data[d].counts))
 	}
 	var minVal = d3.min(dataArray)
 	var maxVal = d3.max(dataArray)
-	var ramp = d3.scaleLinear().domain([minVal,maxVal]).range([lowColor,highColor])
+	var ramp = d3.scaleOrdinal().domain([0,1,2,3,4]).range([noColor,deleteColor,modifyColor,delayColor,adoptColor])
 	
   // Load GeoJSON data and merge with states data
   d3.json("us-states.json", function(json) {
@@ -111,16 +136,16 @@ d3.csv("NECCount2020.csv", function(data) {
       var dataState = data[i].state_id;
 
       // Grab data value 
-      var dataValue = data[i].Reduction2025;
+      var dataValue = data[i].counts;
 
       // Grab data value 
       var linkValue = data[i].link;
 
       // Grab data value 
-      var renewValue = data[i].renewable;
+      var statusValue = data[i].status;
       
       // Grab data value 
-      var ghgValue = data[i].ghg;
+      var moreValue = data[i].more;
       
       // Grab data value 
       var codeValue = data[i].code;
@@ -132,10 +157,10 @@ d3.csv("NECCount2020.csv", function(data) {
         if (dataState == jsonState) {
 
           // Copy the data value into the JSON
-          json.features[j].properties.Reduction2025 = dataValue;
+          json.features[j].properties.counts = dataValue;
           json.features[j].properties.link = linkValue
-          json.features[j].properties.renew = renewValue
-          json.features[j].properties.ghg = ghgValue
+          json.features[j].properties.status = statusValue
+          json.features[j].properties.more = moreValue
           json.features[j].properties.code = codeValue
 
           // Stop looking through the JSON
@@ -153,27 +178,35 @@ d3.csv("NECCount2020.csv", function(data) {
       // Modification of custom tooltip code provided by Malcolm Maclean, "D3 Tips and Tricks" 
       // http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
       .on("mouseover", function(d) {      
-          div.transition()        
+
+        div.transition()        
               .duration(200)      
               .style("opacity", .9);      
-          var tooltip_text = d.properties.name + "<br>" + d.properties.renew + "<br>" + d.properties.ghg
-          div.transition()
-				.duration(200)	
-				.style("opacity", .9);	
-			div	.html(tooltip_text)	 
-				.style("left", (d3.event.pageX) + "px")			 
-				.style("top", (d3.event.pageY - 28) + "px");
+          var tooltip_text = d.properties.name + "<br>" + d.properties.status + "<br>" + d.properties.more
+		div.html(tooltip_text)	 
+			.style("left", (d3.event.pageX) + "px")			 
+			.style("top", (d3.event.pageY - 28) + "px")
 			})
       .on("click", function(d) {
-      window.open(d.properties.link, "_blank");
+      if(d.properties.link != ''){
+      window.open(d.properties.link, "_blank");}
       })
       .style("stroke", "#fff")
       .style("stroke-width", "1")
-      .style("fill", function(d) { return ramp(d.properties.Reduction2025)})
+      .style("fill", function(d) { return ramp(d.properties.counts)})
       });
 
   });
 
 </script>
+<div class="legend">
+<div><div class='box green'></div> Deleted Section 210.8(F)</div>
+<br>
+<div><div class='box teal'></div> Modified Section 210.8(F)</div>
+<br>
+<div><div class='box yellow'></div> Delay Section 210.8(F)</div>
+<br>
+<div><div class='box red'></div> Adopted 2020 NEC</div>
+</div>
 </body>
 </html>

@@ -1,25 +1,25 @@
 ,state_id,counts,link,status,more,code
-0,Alabama,3,,Delay Section 210.8(F),,AL
+0,Alabama,3,https://dcm.alabama.gov/PDF/docs/Statement_re_Amended_Rule_355-12-1.pdf,Delay Section 210.8(F),Click for more info,AL
 1,Alaska,0,,,,AK
 2,American Samoa,0,,,,AS
 3,Arizona,0,,,,AZ
 4,Arkansas,0,,,,AR
-5,California,0,,,,CA
+5,California,4,,Adopted 2020 NEC,,CA
 6,Colorado,3,https://content.govdelivery.com/accounts/CODORA/bulletins/2e613c2,Delay Section 210.8(F),Click for more info,CO
-7,Connecticut,0,,,,CT
-8,Delaware,4,,Adopted 2020 NEC,,DE
+7,Connecticut,2,https://portal.ct.gov/-/media/DAS/Office-of-State-Building-Inspector/2022-CSBC-Public-Comment.pdf,Modified Section 210.8(F),Click for more info,CT
+8,Delaware,4,https://delcode.delaware.gov,Adopted 2020 NEC,Adopted in June 2021,DE
 9,District of Columbia,0,,,,DC
 10,Florida,0,,,,FL
 11,Georgia,1,https://www.dca.ga.gov/sites/default/files/2021_nec_amendments.pdf,Deleted Section 210.8(F),Click for more info,GA
 12,Guam,0,,,,
-13,Hawaii,1,,SOMETHING GOES HERE?,,HI
+13,Hawaii,4,,Adopted 2020 NEC,,HI
 14,Idaho,0,,,,ID
 15,Illinois,0,,,,IL
 16,Indiana,0,,,,IN
 17,Iowa,1,https://dps.iowa.gov/divisions/electrical-examining-board/electrical-code-updates,Deleted Section 210.8(F),Click for more info,IA
 18,Kansas,0,,,,KS
 19,Kentucky,0,,,,KY
-20,Louisiana,0,,,,LA
+20,Louisiana,2,http://lsuccc.dps.louisiana.gov/codes.html,Modified Section 210.8(F),Unanimous vote 2/16/2022,LA
 21,Maine,2,https://up.codes/viewer/maine/nfpa-70-2020/chapter/2/wiring-and-protection#2,Modified Section 210.8(F),Click for more info,ME
 22,Marshall Islands,0,,,,
 23,Maryland,0,,,,MD
@@ -32,13 +32,13 @@
 30,N. Mariana Islands,0,,,,
 31,Nebraska,0,,,,NE
 32,Nevada,0,,,,NV
-33,New Hampshire,0,,,,NH
+33,New Hampshire,1,https://www.nh.gov/safety/boardsandcommissions/bldgcode/meetings/documents/PA-EL-AR.pdf,Deleted Section 210.8(F),Click for more info,NH
 34,New Jersey,3,https://www.nj.gov/dca/divisions/codes/advisory/pdf_ucc/CAB_minutes_08_13_2021.pdf,Delay Section 210.8(F),Click for more info,NJ
 35,New Mexico,0,,,,NM
 36,New York,0,,,,NY
 37,North Carolina,1,https://www.ncosfm.gov/media/2068/open,Deleted Section 210.8(F),Click for more info,NC
-38,North Dakota,2,https://www.ndseb.com/,Modified Section 210.8(F),Click for more info,ND
-39,Ohio,2,,Modified Section 210.8(F),,OH
+38,North Dakota,4,https://www.ndseb.com/,Adopted 2020 NEC,Click for more info,ND
+39,Ohio,2,,Modified Section 210.8(F),Variable Speed Drive Exemption on 9/2/2021,OH
 40,Oklahoma,1,https://www.ok.gov/oubcc/documents/2021%2010%2019%20Meeting%20Minutes.pdf,Deleted Section 210.8(F),Click for more info,OK
 41,Oregon,2,https://www.oregon.gov/bcd/codes-stand/Documents/21oesc-table1-E-2021April.pdf,Modified Section 210.8(F),Click for more info,OR
 42,Palau,0,,,,

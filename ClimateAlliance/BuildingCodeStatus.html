@@ -42,16 +42,21 @@
 }
 
 .hash {
-  background-color: #009dff;
+  background-color: #A6DBA0;
 }
 
 .green {
-  background-color: #00C75C;
+  background-color: #5AAE61;
 }
 
 .yellow {
-  background-color: #FFBF00;
+  background-color: #FFFF33;
 }
+	  
+.blue {
+  background-color: #74A9CF;
+}	  
+	  
   .axis text {
     font: 10px sans-serif;
   }
@@ -83,10 +88,10 @@
 var width = 900;
 var height = 600;
 
-var noColor = '#ADADAD'
-var progressColor = '#FFBF00'
-var completeColor = '#00C75C'
-var hashColor = '#009dff'
+var noColor = '#74A9CF'
+var progressColor = '#A6DBA0'
+var completeColor = '#5AAE61'
+var hashColor = '#A6DBA0'
 
 // D3 Projection
 var projection = d3.geoAlbersUsa()
@@ -203,11 +208,13 @@ d3.csv("BuildingCode.csv", function(data) {
 
 </script>
 <div class="legend">
-<div><div class='box green'></div> Complete</div>
+<div><div class='box green'></div> Completed for A2L Adoption</div>
 <br>
-<div><div class='box hash'></div> Partially complete</div>
+<div><div class='box hash'></div> Allows A2L in some cases: partially complete</div>
 <br>
-<div><div class='box yellow'></div> In progress</div>
+<div><div class='box yellow'></div> In process for A2L adoption</div>
+<br>
+<div><div class='box blue'></div> Targeted for 2023</div>
 </div>
 </body>
 </html>
